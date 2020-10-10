@@ -1,0 +1,15 @@
+windows/x64/meterpreter/reverse_tcp
+windows/meterpreter/reverse_tcp
+generic/shell_bind_tcp
+generic/shell_reverse_tcp
+java/meterpreter/bind_tcp
+java/meterpreter/reverse_tcp
+java/meterpreter/reverse_http
+linux/x64/meterpreter/reverse_tcp
+linux/x64/meterpreter/bind_tcp
+linux/x64/meterpreter_reverse_http
+linux/x86/meterpreter/reverse_tcp
+php/meterpreter/reverse_tcp
+python/meterpreter/reverse_tcp
+python/shell_reverse_tcp
+windows/vncinject/reverse_tcp
