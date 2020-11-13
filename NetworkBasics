@@ -1,7 +1,34 @@
 Internet runs on TCP/IP. There were bunch of protocols before that such as Apple, IPX etc
 Protocol : Common language used by computers to speak and understand each other
 
-Application Layer : It includes network services like HTTP, HTTPS, DNS, SSH, Telnet, SMTP
-Transport Layer : It is responsible for getting data packets to and from the app layer using port numbers. TCP is also responsible for packet delivery verification
-by using acknowledgments. Two common protocol : TCP and UDP
+Application Layer
+-----------------
+It includes network services like HTTP, HTTPS, DNS, SSH, Telnet, SMTP
+PDU : Data
+
+Transport Layer
+---------------
+It is responsible for getting data packets to and from the app layer using port numbers. TCP is also responsible for packet delivery verification by using acknowledgments. 
+Two common protocol : TCP and UDP
+PDU : Segment
+Encapsulate data into segments
+TCP
+---
+TCP is a connection-oriented protocol. There is a three way handshake process.
+A -> B, SYN
+B -> A, SYN-ACK
+A -> B, ACK
+TCP is slow and high-effort protocol. It ensures packet delivery, meaning it performs reliable segment transfer
+It has flow control and congestion control mechanism
+Tear-down operation by using FIN flag
+
+UDP
+---
+Faster than UDP.
+No 3WHSK
+No realiable transfer mechanism
+Send and pray
+
+
+
 Network Layer : It uses IP addresses to route packets to their appropriate destination network. (Delivering packets among different networks)
