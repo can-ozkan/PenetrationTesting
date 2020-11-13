@@ -4,3 +4,19 @@
 4) Post-Exploitation
 5) Clearing Tracks
 6) Reporting
+
+Black-Box Test
+--------------
+Penetration tester does not know about the test
+Penetration tester does not given details about the network
+Pain is on the pentester to find these details
+
+Gray-Box Test
+-------------
+Hybrid of the white and black box models
+Penetration tester is given partial information
+
+White-Box Test
+--------------
+Penetration tester has full knowledge of the system being tested. The goal is to simulate a malicious insider who has  knowledge and possibly basic credentials
+for the target system. 
