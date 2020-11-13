@@ -21,6 +21,12 @@ A -> B, ACK
 TCP is slow and high-effort protocol. It ensures packet delivery, meaning it performs reliable segment transfer
 It has flow control and congestion control mechanism
 Tear-down operation by using FIN flag
+TCP Header Fields : Source Port, Destination Port, Sequence Number, Acknowledgment Number, Data Offset, Reserved, Flags, Windows
+Checksum, Urgent Pointer, Options, Padding and Data
+TCP Flags : SYN, ACK, PSH, URG, RST, FIN
+
+Initial Sequence Number (ISN) : ISN, enabling reassembly of large packets, tracks packets received. 32 bit number. It is sent on steps 1 and 2 during three-way
+handshake process. By guessing ISN values, a hacker can hijack a TCP session, which can lead to gain access to a server without logging in 
 
 UDP
 ---
