@@ -1,0 +1,15 @@
+Malware
+-------
+It includes virus, worms, trojan horses. Malware's objective is to destroy data, showdown a network or system.
+
+Viruses
+-------
+Attach itself into an executable
+Need user interaction
+Need a host program to replicate itself
+
+AntiVirus Software
+------------------
+Try to detect and remove virus
+Work based on signature-based detection. Recently, anomaly-based
+AV database needs to be updated periodically
