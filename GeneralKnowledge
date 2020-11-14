@@ -13,3 +13,8 @@ AntiVirus Software
 Try to detect and remove virus
 Work based on signature-based detection. Recently, anomaly-based
 AV database needs to be updated periodically
+
+Trojan Horses
+-------------
+Disguise themselves as useful programs
+Hide malicious content inside a program such as backdoor, rootkit
