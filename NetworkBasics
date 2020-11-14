@@ -32,8 +32,10 @@ UDP
 ---
 Faster than UDP.
 No 3WHSK
-No realiable transfer mechanism
+Unreliable protocol
 Send and pray
+Does not verify the fact that the receiver is listening
+Connectionless protocol
 
 
 
