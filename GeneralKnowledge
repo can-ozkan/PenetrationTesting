@@ -29,3 +29,10 @@ Adware
 Similar to spyware in that it can be installed without the user being aware
 Main objective is to determine user's onlien habits so that users will be displayed tailored advertisement
 It slows down the computer
+
+Ping of Death Attack
+--------------------
+It is a type of DoS attack that attacker creates an ICMP packet larger than 65535 bytes
+Large ICMP packet is fragmented at source and destination tries to reassemble it
+Destination does not know how to deal with that large ICMP packet. As a result, destination system crashes
+Modern OSs are protected 
