@@ -18,3 +18,14 @@ Trojan Horses
 -------------
 Disguise themselves as useful programs
 Hide malicious content inside a program such as backdoor, rootkit
+
+Spyware
+-------
+Exfiltrate information from victim computer to the attacker. This info includes but not limited to financial data, password, PIN etc
+It can be form of keylogger
+
+Adware
+------
+Similar to spyware in that it can be installed without the user being aware
+Main objective is to determine user's onlien habits so that users will be displayed tailored advertisement
+It slows down the computer
