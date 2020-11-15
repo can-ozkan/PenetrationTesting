@@ -36,3 +36,10 @@ It is a type of DoS attack that attacker creates an ICMP packet larger than 6553
 Large ICMP packet is fragmented at source and destination tries to reassemble it
 Destination does not know how to deal with that large ICMP packet. As a result, destination system crashes
 Modern OSs are protected 
+
+Session Hijacking
+-----------------
+Enables attacker to interrupt a TCP session
+Taking over another user's session
+It is about guessing TCP sequence number
+Mitigation : Random initial sequence number
