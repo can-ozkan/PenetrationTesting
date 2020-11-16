@@ -43,3 +43,10 @@ Enables attacker to interrupt a TCP session
 Taking over another user's session
 It is about guessing TCP sequence number
 Mitigation : Random initial sequence number
+
+DNS Zone Transfer
+-----------------
+DNS resolves hostnames to IP addresses
+DNS Zone Transfer Tools : Dig, Host, Fierce
+DNS Zone Transfer enables attacker to see all hosts on a network
+It gives you the organization's network topology
