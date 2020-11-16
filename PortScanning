@@ -1,0 +1,16 @@
+Port scanning finds out which services are offered by a host and help identify vulnerabilities on that host
+You can identify a vulnerable port and launch an exploit
+It is recommended that testers scan all ports during penetration test
+
+Example Tools : Nmap, Nessus, Hping3, Zenmap
+
+netdiscover -r <CIDR>
+
+Port scanning programs like Nmap report open ports, closed ports, filtered ports and potential OS that is currently running
+
+TCP Port Scan             SYN Port Scan
+-------------             -------------
+A -> B, SYN               A -> B, SYN
+B -> A, SYN-ACK           B -> A, SYN-ACK
+A -> B, ACK               A -> B, RST
+
