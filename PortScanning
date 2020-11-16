@@ -34,3 +34,12 @@ Port is open if no response
 
 ***NULL, XMAS, and FIN scans do not work on Windows machines
 
+UDP Scan
+--------
+Closed ports respond with ICMP Port Unreachable
+
+ACK Scan
+--------
+It is used to get info about Firewall
+Statefull firewalls track connection and block unsolicited ACK packets
+
