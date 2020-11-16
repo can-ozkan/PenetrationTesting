@@ -14,3 +14,23 @@ A -> B, SYN               A -> B, SYN
 B -> A, SYN-ACK           B -> A, SYN-ACK
 A -> B, ACK               A -> B, RST
 
+NULL Scan
+---------
+All packet flags are turned off
+Port is closed if port returns RST
+Port is open if no response
+
+XMAS Scan
+---------
+FIN, PSH and URG flags are set
+Port is closed if port returns RST
+Port is open if no response
+
+FIN Scan
+--------
+Only FIN flag is set
+Port is closed if port returns RST
+Port is open if no response
+
+***NULL, XMAS, and FIN scans do not work on Windows machines
+
