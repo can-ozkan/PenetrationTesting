@@ -48,4 +48,13 @@ Ping Sweep
 Identify which IP addresses are alive by pinging a range of IP addresses
 Shortcomings : Computers that are shut down cannot respond to ping. Some hosts are configured not to reply ping. Firewalls may filter out ICMP traffic
 
+Enumeration
+-----------
+Enumeration process extracts information about resources or shares on the network, network topology and architecture, usernames or groups and so on
+
+NBTScan
+-------
+NBT (NetBIOS over TCP/IP) is the Windows networking protocol that is used for shared folders and printers
+nbtscan is a tool which enumerates Windows operating system
+usage : nbtscan <CIDR>
 
