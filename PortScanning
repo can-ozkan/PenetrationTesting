@@ -43,3 +43,9 @@ ACK Scan
 It is used to get info about Firewall
 Statefull firewalls track connection and block unsolicited ACK packets
 
+Ping Sweep
+----------
+Identify which IP addresses are alive by pinging a range of IP addresses
+Shortcomings : Computers that are shut down cannot respond to ping. Some hosts are configured not to reply ping. Firewalls may filter out ICMP traffic
+
+
