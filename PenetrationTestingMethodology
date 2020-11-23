@@ -1,6 +1,11 @@
-1) Information Gathering / Reconnaissance
-2) Scanning & Enumeration
-3) Exploitation
+1) Information Gathering / Reconnaissance : Data gathering or intelligence step on your target. Data is gathered in order to increase the attack surface.
+  Gather initial information and determine the network range as well as application list
+2) Scanning & Enumeration : 
+  Determine active machines/devices. Discover open ports. Fingerprint the OS. Uncover services on hosts. Map the network better. Both vulnerability scan and network 
+  scan are applied. The results of network scan include but not limited to details of the discovered devices such as IP addresses, hostnames, OSs, services,
+  running applications, applications associated versions, open shares, usernames, groups etc. Network scanning process is related to recannissance phase. Vulnerability
+  scan detects and classify vulnerabilities found on IT assets. Vulnerability scanners are used during vulnerability scanning.
+3) Exploitation : aka gaining access into the target system.
 4) Post-Exploitation
 5) Clearing Tracks
 6) Reporting
