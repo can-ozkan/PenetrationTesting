@@ -5,10 +5,18 @@
   scan are applied. The results of network scan include but not limited to details of the discovered devices such as IP addresses, hostnames, OSs, services,
   running applications, applications associated versions, open shares, usernames, groups etc. Network scanning process is related to recannissance phase. Vulnerability
   scan detects and classify vulnerabilities found on IT assets. Vulnerability scanners are used during vulnerability scanning.
-3) Exploitation : aka gaining access into the target system.
-4) Post-Exploitation
+3) Exploitation : aka gaining access into the target system. This is the step where the security testers take control of vulnerable IT assets and applications.
+4) Post-Exploitation : Maintain control of the machine for later use. Determine the value of the compromised machine. 
 5) Clearing Tracks
-6) Reporting
+6) Reporting : It is outcome of the actions the penetration tester did during penetration test.
+
+Penetration Testing Standards
+-----------------------------
+PCI-DSS
+OWASP
+PTES
+OSSTMM
+NIST SP 800-115
 
 Black-Box Test
 --------------
