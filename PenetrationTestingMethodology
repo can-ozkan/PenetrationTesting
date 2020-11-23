@@ -12,11 +12,11 @@
 
 Penetration Testing Standards
 -----------------------------
-PCI-DSS
-OWASP
-PTES
-OSSTMM
-NIST SP 800-115
+PCI-DSS (Payment Card Industry - Data Security Standard)
+OWASP (Open Web Application Security Project)
+PTES (Penetration Testing Execution Standard)
+OSSTMM (Open Source Security Testing Methodology Manual)
+NIST SP 800-115 
 
 Black-Box Test
 --------------
