@@ -4,6 +4,31 @@ Security Audits : Checklist of best practices
 Vulnerability Assessment : Identifying security holes
 Penetration Test : Exploiting vulnerabilities
 
+Vulnerability Assessment
+------------------------
+It is the process of identifying security holes in IT systems and applications
+During vulnerability assessment, you don't go beyond identifying vulnerabilities
+No exploitation, no post exploitation
+You don't know whether the finding is true positive or false positive
+You don't try to exploit the potential vulnerability during Vulnerability Assessment process
+
+Vulnerability Assessment Steps
+------------------------------
+Identify assets and build IT inventory
+Categorize assets into groups
+Scan assets against known vulnerabilities
+Rank risks (CVSS)
+Patch management
+Rescan
+
+Terminology
+-----------
+Threat is anything that can exploit a vulnerability. We try to protect our assets against threats
+Vulnerability can be defined as weaknesses and security holes in an IT asset that can be exploited by threats
+Exploit can be defined as a piece of software or q sequence of commands that takes advantage of a vulnerability to cause unintended behavior to occur
+An exploit is an attack on an IT asset that takes advantage of a vulnerability that the IT asset has
+Exploit also refers to the act of successfully making such an attack
+
 
 Malware
 -------
