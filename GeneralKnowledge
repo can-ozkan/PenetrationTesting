@@ -17,7 +17,7 @@ Vulnerability Assessment Steps
 Identify assets and build IT inventory
 Categorize assets into groups
 Scan assets against known vulnerabilities
-Rank risks (CVSS)
+Rank risks (based on CVSS)
 Patch management
 Rescan
 
@@ -29,6 +29,34 @@ Exploit can be defined as a piece of software or q sequence of commands that tak
 An exploit is an attack on an IT asset that takes advantage of a vulnerability that the IT asset has
 Exploit also refers to the act of successfully making such an attack
 
+Penetration Test Approaches
+---------------------------
+There are different approaches according to the knowledge that the penetration tester has
+
+Black Box Test
+--------------
+No previous knowledge required
+It simulates a realistic scenario
+Some part of the infrastructure or applications may remain untested
+Tester spends time to find out the topology
+
+Grey Box Test
+-------------
+Partial information is provided to the security tester
+
+White Box Test
+--------------
+Penetration tester has full knowledge regarding the system that he/she is dealing with
+Deep and thorough testing
+Maximizes testing time (Tester does not spend too much time to find out the topology)
+Extends the testing area
+
+Planning a Penetration Test
+---------------------------
+Identify the purpose
+Determine the scope
+Determine the requirements and preparation
+Identify the restrictions
 
 Malware
 -------
