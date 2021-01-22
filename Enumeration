@@ -28,3 +28,12 @@ onesixtyone, snmp-check, metasploit - auxiliary/scanner/snmp/snmp_enum
 LDAP Enumeration
 ----------------
 ADExplorer64
+
+NFS Enumeration
+---------------
+rpc-scan, superenum
+
+SMTP Enumeration
+----------------
+VRFY, EXPN, RCPT TO
+smtp-user-enum
