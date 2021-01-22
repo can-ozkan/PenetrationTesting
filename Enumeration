@@ -5,6 +5,14 @@ nbtstat -c
 nmap -sV -v --script nbstat.nse <target_IP>
 metasploit - auxiliary/scanner/netbios/nbname
 
+SMB Enumeration
+---------------
+enum4linux, nbtscan, smbmap
+
+DNS Enumeration
+---------------
+fierce, nslookup, dig, dnsenum, dnsrecon
+
 Shared resources enumeration: 
 -----------------------------
 net view \\<ip_address>
@@ -16,3 +24,7 @@ SNMP Enumeration
 ----------------
 SNMP consists of a manager and agents on the network.
 onesixtyone, snmp-check, metasploit - auxiliary/scanner/snmp/snmp_enum
+
+LDAP Enumeration
+----------------
+ADExplorer64
