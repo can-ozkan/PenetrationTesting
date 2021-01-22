@@ -3,6 +3,7 @@ NetBIOS Enumeration
 nbtstat -a <remote_windows_host>
 nbtstat -c
 nmap -sV -v --script nbstat.nse <target_IP>
+metasploit - auxiliary/scanner/netbios/nbname
 
 Shared resources enumeration: 
 -----------------------------
@@ -14,3 +15,4 @@ net view /domain:<domain name>
 SNMP Enumeration
 ----------------
 SNMP consists of a manager and agents on the network.
+onesixtyone, snmp-check, metasploit - auxiliary/scanner/snmp/snmp_enum
