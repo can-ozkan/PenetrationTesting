@@ -1,0 +1,16 @@
+NetBIOS Enumeration
+-------------------
+nbtstat -a <remote_windows_host>
+nbtstat -c
+nmap -sV -v --script nbstat.nse <target_IP>
+
+Shared resources enumeration: 
+-----------------------------
+net view \\<ip_address>
+net view \\<ip_address> /ALL
+net view /domain
+net view /domain:<domain name> 
+
+SNMP Enumeration
+----------------
+SNMP consists of a manager and agents on the network.
