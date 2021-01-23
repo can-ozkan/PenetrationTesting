@@ -19,6 +19,8 @@ set querytype=soa
 //learn primary name server
 ls -d <name_server>
 
+ dnsrecon -t axfr -d <target_domain>
+
 
 Shared resources enumeration: 
 -----------------------------
