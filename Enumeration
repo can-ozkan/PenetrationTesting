@@ -17,7 +17,7 @@ dig @<target_nameserver> <target_domain> axfr
 nslookup
 set querytype=soa
 //learn primary name server
-ls -d <name_server>
+ls-d <name_server>
 
 dnsrecon -t axfr -d <target_domain>
  
