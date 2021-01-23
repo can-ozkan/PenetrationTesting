@@ -20,6 +20,8 @@ set querytype=soa
 ls -d <name_server>
 
  dnsrecon -t axfr -d <target_domain>
+ 
+ dnsrecon -d <domain_name> -z //DNSSEC Zone Walking
 
 
 Shared resources enumeration: 
