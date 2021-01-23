@@ -48,3 +48,8 @@ SMTP Enumeration
 ----------------
 VRFY, EXPN, RCPT TO
 smtp-user-enum
+
+IPSec Enumeration
+-----------------
+nmap -sU -p 500 <target_IP>
+ike-scan -M <target_gateway>
