@@ -32,7 +32,10 @@ net view /domain
 net view /domain:<domain name> 
 
 SNMP Enumeration
-----------------
+-----------------
+nmap -p 21 -A <target_ip>
+metasploit - auxiliary/scanner/ftp/ftp_version
+
 SNMP consists of a manager and agents on the network.
 onesixtyone, snmp-check, metasploit - auxiliary/scanner/snmp/snmp_enum
 
@@ -53,3 +56,6 @@ IPSec Enumeration
 -----------------
 nmap -sU -p 500 <target_IP>
 ike-scan -M <target_gateway>
+
+FTP Enumeration
+---
