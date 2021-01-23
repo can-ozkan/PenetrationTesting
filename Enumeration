@@ -14,6 +14,11 @@ DNS Enumeration
 fierce, nslookup, dig, dnsenum, dnsrecon
 dig @<target_nameserver> <target_domain> axfr
 
+nslookup
+set querytype=soa
+//learn primary name server
+ls -d <name_server>
+
 
 Shared resources enumeration: 
 -----------------------------
