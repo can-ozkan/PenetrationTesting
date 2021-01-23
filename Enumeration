@@ -12,6 +12,8 @@ enum4linux, nbtscan, smbmap
 DNS Enumeration
 ---------------
 fierce, nslookup, dig, dnsenum, dnsrecon
+dig @<target_nameserver> <target_domain> axfr
+
 
 Shared resources enumeration: 
 -----------------------------
