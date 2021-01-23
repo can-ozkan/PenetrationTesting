@@ -58,4 +58,5 @@ nmap -sU -p 500 <target_IP>
 ike-scan -M <target_gateway>
 
 FTP Enumeration
----
+---------------
+nmap -p 21 -A <target_ip>
