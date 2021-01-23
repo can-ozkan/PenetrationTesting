@@ -60,3 +60,4 @@ ike-scan -M <target_gateway>
 FTP Enumeration
 ---------------
 nmap -p 21 -A <target_ip>
+metasploit - auxiliary/scanner/ftp/ftp_version
