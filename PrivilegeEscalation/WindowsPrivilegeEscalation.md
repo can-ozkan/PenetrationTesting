@@ -1,0 +1,492 @@
+# Windows Privilege Escalation Cheat Sheet (OSCP / GPEN)
+
+This cheat sheet provides a **systematic methodology for Windows privilege escalation** commonly encountered in **OSCP and GPEN exams**. The focus is on **enumeration first**, then identifying and exploiting misconfigurations.
+
+Core methodology:
+
+```
+Enumerate → Identify Weakness → Exploit → Maintain Access
+```
+
+Privilege escalation on Windows is **primarily enumeration**.
+
+---
+
+# 1. Basic System Enumeration
+
+## Current User
+
+```powershell
+whoami
+whoami /priv
+whoami /groups
+```
+
+Check if the user has interesting privileges:
+
+```
+SeImpersonatePrivilege
+SeAssignPrimaryTokenPrivilege
+SeBackupPrivilege
+SeRestorePrivilege
+SeTakeOwnershipPrivilege
+```
+
+---
+
+## System Information
+
+```powershell
+systeminfo
+hostname
+```
+
+Check OS version:
+
+```powershell
+wmic os get caption,version,buildnumber
+```
+
+Search exploit database:
+
+```bash
+searchsploit windows <version>
+```
+
+---
+
+# 2. User and Group Enumeration
+
+List users:
+
+```powershell
+net user
+```
+
+List groups:
+
+```powershell
+net localgroup
+```
+
+Check group members:
+
+```powershell
+net localgroup administrators
+```
+
+Current user information:
+
+```powershell
+net user <username>
+```
+
+---
+
+# 3. Network Enumeration
+
+Check network configuration:
+
+```powershell
+ipconfig /all
+route print
+arp -a
+```
+
+Active connections:
+
+```powershell
+netstat -ano
+```
+
+---
+
+# 4. Running Processes
+
+Check running processes:
+
+```powershell
+tasklist
+```
+
+Detailed process info:
+
+```powershell
+wmic process list full
+```
+
+Look for:
+
+```
+services running as SYSTEM
+custom applications
+scripts
+```
+
+---
+
+# 5. Installed Programs
+
+List installed software:
+
+```powershell
+wmic product get name,version,vendor
+```
+
+Registry method:
+
+```powershell
+reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Uninstall
+```
+
+Check for vulnerable software versions.
+
+---
+
+# 6. Services Enumeration
+
+List services:
+
+```powershell
+sc query
+```
+
+Detailed information:
+
+```powershell
+wmic service get name,displayname,pathname,startmode
+```
+
+Look for:
+
+```
+services running as SYSTEM
+unquoted service paths
+writable service executables
+```
+
+---
+
+# 7. Unquoted Service Path
+
+Check services:
+
+```powershell
+wmic service get name,displayname,pathname,startmode
+```
+
+Example vulnerable path:
+
+```
+C:\Program Files\My Service\service.exe
+```
+
+Windows will attempt:
+
+```
+C:\Program.exe
+C:\Program Files\My.exe
+```
+
+If writable → privilege escalation.
+
+---
+
+# 8. Weak Service Permissions
+
+Check service permissions:
+
+```powershell
+sc qc <service_name>
+```
+
+Check writable service binary:
+
+```powershell
+icacls "C:\path\to\service.exe"
+```
+
+If writable → replace executable.
+
+---
+
+# 9. Scheduled Tasks
+
+List scheduled tasks:
+
+```powershell
+schtasks /query /fo LIST /v
+```
+
+Look for:
+
+```
+tasks running as SYSTEM
+writable scripts
+```
+
+---
+
+# 10. Registry Permissions
+
+Check registry permissions:
+
+```powershell
+reg query HKLM
+```
+
+Check writable registry keys.
+
+---
+
+# 11. AlwaysInstallElevated
+
+Check registry keys:
+
+```powershell
+reg query HKCU\Software\Policies\Microsoft\Windows\Installer
+reg query HKLM\Software\Policies\Microsoft\Windows\Installer
+```
+
+If both values:
+
+```
+AlwaysInstallElevated = 1
+```
+
+Then install MSI as SYSTEM.
+
+---
+
+# 12. Stored Credentials
+
+Check saved credentials:
+
+```powershell
+cmdkey /list
+```
+
+Use stored credentials:
+
+```powershell
+runas /savecred /user:administrator cmd
+```
+
+---
+
+# 13. Credential Files
+
+Search for credentials:
+
+```powershell
+findstr /si password *.txt *.xml *.config
+```
+
+Search system:
+
+```powershell
+dir /s *password*
+```
+
+---
+
+# 14. Registry Credentials
+
+Check registry:
+
+```powershell
+reg query HKLM /f password /t REG_SZ /s
+```
+
+---
+
+# 15. Unattended Installation Files
+
+Check for unattended files:
+
+```powershell
+dir C:\ /s /b | findstr unattended.xml
+```
+
+Common files:
+
+```
+unattend.xml
+sysprep.xml
+```
+
+---
+
+# 16. PowerShell History
+
+Check history:
+
+```powershell
+type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+```
+
+---
+
+# 17. File Permissions
+
+Check writable files:
+
+```powershell
+icacls C:\path\file
+```
+
+Check directories:
+
+```powershell
+accesschk.exe -uws "Everyone" *
+```
+
+---
+
+# 18. Token Privileges
+
+Check token privileges:
+
+```powershell
+whoami /priv
+```
+
+If present:
+
+```
+SeImpersonatePrivilege
+SeAssignPrimaryTokenPrivilege
+```
+
+Use impersonation exploits (e.g., token impersonation techniques).
+
+---
+
+# 19. DLL Hijacking
+
+Check for applications loading missing DLLs.
+
+Use Process Monitor to identify:
+
+```
+NAME NOT FOUND
+```
+
+Place malicious DLL in writable directory.
+
+---
+
+# 20. PATH Variable Abuse
+
+Check PATH:
+
+```powershell
+echo %PATH%
+```
+
+If writable directory exists earlier in PATH → place malicious executable.
+
+---
+
+# 21. Automatic Enumeration Tools
+
+Useful tools:
+
+```
+winPEAS
+PowerUp
+Seatbelt
+SharpUp
+```
+
+Example:
+
+```powershell
+winpeas.exe
+```
+
+---
+
+# 22. Quick Enumeration Commands
+
+Run immediately after obtaining a shell:
+
+```powershell
+whoami
+whoami /priv
+systeminfo
+net user
+net localgroup administrators
+wmic service get name,displayname,pathname,startmode
+schtasks /query /fo LIST /v
+cmdkey /list
+```
+
+---
+
+# 23. Important Locations to Inspect
+
+Check these directories:
+
+```
+C:\Program Files
+C:\Program Files (x86)
+C:\Windows\System32
+C:\Users
+C:\Temp
+```
+
+Look for:
+
+```
+scripts
+config files
+passwords
+```
+
+---
+
+# 24. Common PrivEsc Paths in Exams
+
+Typical OSCP/GPEN privilege escalation vectors:
+
+```
+Unquoted service path
+Weak service permissions
+AlwaysInstallElevated
+Writable scheduled tasks
+Credential discovery
+Token impersonation
+DLL hijacking
+```
+
+---
+
+# 25. Recommended Enumeration Workflow
+
+```
+1. Check user privileges
+2. Check system information
+3. Enumerate services
+4. Check scheduled tasks
+5. Check credentials
+6. Check writable files
+7. Check registry
+8. Check installed software
+```
+
+---
+
+# 26. Final Advice
+
+Privilege escalation on Windows is usually **misconfiguration**, not exploitation.
+
+Always ask:
+
+```
+What runs as SYSTEM?
+What files can I modify?
+What executes automatically?
+```
+
+The more thoroughly you enumerate, the faster you escalate privileges.
