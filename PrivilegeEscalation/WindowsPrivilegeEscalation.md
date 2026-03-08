@@ -222,7 +222,7 @@ Look for:
 
 ```
 tasks running as SYSTEM
-writable scripts
+writable scripts via icacls. For ex, icacls c:\tasks\schtask.bat
 ```
 
 ---
