@@ -401,10 +401,13 @@ If writable directory exists earlier in PATH → place malicious executable.
 Useful tools:
 
 ```
-winPEAS
+winPEAS (https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS)
 PowerUp
 Seatbelt
 SharpUp
+https://github.com/itm4n/PrivescCheck
+https://github.com/bitsadmin/wesng
+Metasploit (multi/recon/local_exploit_suggester)
 ```
 
 Example:
