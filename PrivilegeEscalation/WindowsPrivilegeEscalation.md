@@ -165,6 +165,14 @@ unquoted service paths
 writable service executables
 ```
 
+Create a reverse shell and service restart
+```
+for cmd: sc stop windowsscheduler
+for cmd: sc start windowsscheduler
+for powershell: sc.exe stop windowsscheduler
+for powershell: sc.exe start windowsscheduler
+```
+
 ---
 
 # 7. Unquoted Service Path
