@@ -477,6 +477,38 @@ DLL hijacking
 
 ---
 
+# 26. Harvesting Passwords From Usual Spots
+
+## Unattended Windows Installations
+
+Look for files below
+```
+C:\Unattend.xml
+C:\Windows\Panther\Unattend.xml
+C:\Windows\Panther\Unattend\Unattend.xml
+C:\Windows\system32\sysprep.inf
+C:\Windows\system32\sysprep\sysprep.xml
+```
+
+## Powershell History
+```
+type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+```
+
+## IIS Configuration
+```
+C:\inetpub\wwwroot\web.config
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config
+type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
+```
+
+## Retrieve Credentials from Software: PuTTY
+```
+reg query HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\ /f "Proxy" /s
+```
+
+---
+
 # 26. Final Advice
 
 Privilege escalation on Windows is usually **misconfiguration**, not exploitation.
