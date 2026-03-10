@@ -381,7 +381,9 @@ showmount -e 192.168.1.10
 Mount share:
 
 ```bash
-mount -t nfs 192.168.1.10:/share /mnt
+mkdir /mnt/kenobiNFS
+mount 10.114.142.210:/var /mnt/kenobiNFS
+ls -la /mnt/kenobiNFS
 ```
 
 ---
