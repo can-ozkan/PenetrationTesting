@@ -150,6 +150,7 @@ Check SMB version:
 
 ```bash
 nmap --script smb-protocols -p445 192.168.1.10
+nmap -p 445 --script=smb-enum-shares.nse,smb-enum-users.nse MACHINE_IP
 ```
 
 List shares:
