@@ -366,6 +366,12 @@ xfreerdp /v:192.168.1.10
 
 # 14. NFS Enumeration
 
+Nmap enumeration:
+
+```
+nmap -p 111 --script=nfs-ls,nfs-statfs,nfs-showmount 10.114.164.19
+```
+
 List shares:
 
 ```bash
