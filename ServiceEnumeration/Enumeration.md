@@ -157,6 +157,7 @@ List shares:
 
 ```bash
 smbclient -L //192.168.1.10
+smbclient -N -L //10.10.11.236
 ```
 
 Anonymous access:
@@ -175,6 +176,14 @@ SMB vulnerability scan:
 
 ```bash
 nmap --script smb-vuln* -p445 192.168.1.10
+```
+
+Resources:
+
+```bash
+https://0xdf.gitlab.io/cheatsheets/smb-enum
+https://medium.com/@somnadh0000/road-to-oscp-cpts-the-ultimate-smb-enumeration-cheat-sheet-d80410e0a462
+https://github.com/irgoncalves/smbclient_cheatsheet
 ```
 
 ---
