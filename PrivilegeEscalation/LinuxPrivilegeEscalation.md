@@ -14,6 +14,23 @@ Privilege escalation is **mostly enumeration**. Carefully inspect the system bef
 
 # 1. Basic System Enumeration
 
+First commands to run:
+
+```
+hostname
+uname -a
+cat /proc/version
+cat /etc/issue
+ps -A
+ps axjf
+env
+sudo -l
+id
+history
+ifconfig
+netstat -ano
+```
+
 ## Current User
 
 ```bash
@@ -40,6 +57,8 @@ disk
 uname -a
 cat /etc/os-release
 hostname
+cat /proc/version
+cat /etc/issue
 ```
 
 Kernel version:
