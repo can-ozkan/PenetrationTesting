@@ -532,13 +532,11 @@ What executes automatically?
 
 ---
 
-# 24. Final Advice
+# 24. Additional Resources
 
-Privilege escalation is **80% enumeration**.
-
-Remember:
 
 ```
-The system will usually tell you how to become root.
-You just need to read carefully.
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Linux%20-%20Privilege%20Escalation.md
+https://sushant747.gitbooks.io/total-oscp-guide/content/privilege_escalation_-_linux.html
+https://payatu.com/blog/a-guide-to-linux-privilege-escalation/
 ```
