@@ -492,7 +492,7 @@ cat /etc/exports
 ```bash
 showmount -e TARGET_IP
 mkdir /tmp/1
-sudo mount -o rw,vers=2 TARGET_IP:/tmp /tmp/1
+sudo mount -o rw TARGET_IP:/tmp /tmp/1
 ```
 
 Create payload source:
