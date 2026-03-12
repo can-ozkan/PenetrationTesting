@@ -365,6 +365,8 @@ id
 
 # 11. SUID (Environment Variables #1 / PATH Hijack)
 
+If a privileged script or program calls commands without full paths, you can hijack them.
+
 ## Detection
 
 ```bash
