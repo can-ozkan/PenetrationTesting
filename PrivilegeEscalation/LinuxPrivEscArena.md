@@ -490,6 +490,8 @@ id
 
 # 16. Cron (Writable Script / File Overwrite)
 
+Writable scripts executed by root.
+
 ## Detection
 
 ```bash
