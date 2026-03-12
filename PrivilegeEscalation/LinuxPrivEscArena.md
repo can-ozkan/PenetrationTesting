@@ -288,6 +288,8 @@ sudo LD_PRELOAD=/tmp/x.so apache2
 id
 ```
 
+Create a shared object using the code above and run one of the programs you are allowed to run via sudo (listed when running sudo -l), while setting the LD_PRELOAD environment variable to the full path of the new shared object.
+
 ---
 
 # 9. SUID (Shared Object Injection)
