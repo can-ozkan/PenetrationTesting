@@ -402,7 +402,7 @@ Useful tools:
 
 ```
 winPEAS (https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS)
-PowerUp
+PowerUp (https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1)
 Seatbelt
 SharpUp
 https://github.com/itm4n/PrivescCheck
