@@ -435,12 +435,16 @@ id
 
 # 14. Cron (PATH Abuse)
 
+If a cron job does not run with a full path.
+
 ## Detection
 
 ```bash
 cat /etc/crontab
 echo $PATH
 ```
+
+You may place a malicious script earlier in $PATH.
 
 ## Exploitation
 
