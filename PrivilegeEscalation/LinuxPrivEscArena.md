@@ -609,11 +609,13 @@ showmount -e TARGET_IP
 ## Step 1: enumerate
 ```bash
 id
-uname -a
 sudo -l
-find / -type f -perm -04000 -ls 2>/dev/null
-getcap -r / 2>/dev/null
+find / -perm -4000 2>/dev/null
 cat /etc/crontab
+ps aux
+getcap -r / 2>/dev/null
+uname -a
+ls -la /etc/passwd
 cat /etc/exports
 ```
 
