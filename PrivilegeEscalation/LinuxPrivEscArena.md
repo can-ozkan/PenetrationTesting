@@ -182,7 +182,7 @@ cat /path/to/id_rsa
 
 ### On Kali
 ```bash
-chmod 400 id_rsa
+chmod 600 id_rsa
 ssh -i id_rsa root@TARGET_IP
 ```
 
