@@ -405,6 +405,10 @@ export -f /usr/sbin/service
 /usr/local/bin/suid-env2
 ```
 
+Note: This will not work on Bash versions 4.4 and above.
+
+When in debugging mode, Bash uses the environment variable PS4 to display an extra prompt for debugging statements.
+
 ## Exploitation Method #2
 
 ```bash
