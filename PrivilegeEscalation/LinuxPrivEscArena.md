@@ -388,6 +388,8 @@ id
 
 # 12. SUID (Environment Variables #2)
 
+In Bash versions <4.2-048, it is possible to define shell functions with names that resemble file paths, then export those functions so that they are used instead of any actual executable at that file path.
+
 ## Detection
 
 ```bash
