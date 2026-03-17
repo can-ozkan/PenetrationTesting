@@ -527,6 +527,7 @@ reg query HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\ /f "Proxy" /s
 ```
 sudo pacman -S mingw-w64-gcc
 x86_64-w64-mingw32-g++ hello.c -static -o hello
+i686-w64-mingw32-gcc hello.c -static -o hello
 ```
 
 ---
