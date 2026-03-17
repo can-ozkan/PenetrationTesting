@@ -367,6 +367,7 @@ SeAssignPrimaryTokenPrivilege
 ```
 
 Use impersonation exploits (e.g., token impersonation techniques).
+SeImpersonatePrivilege -> PrintSpoofer64.exe and GodPotato
 
 ---
 
