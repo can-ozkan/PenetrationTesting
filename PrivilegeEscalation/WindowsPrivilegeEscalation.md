@@ -521,7 +521,14 @@ reg query HKEY_CURRENT_USER\Software\SimonTatham\PuTTY\Sessions\ /f "Proxy" /s
 
 ---
 
-# 27. Final Advice
+# 27. Cross Compilation
+
+x86_64-w64-mingw32-g++ hello.c -static -o hello
+
+---
+
+
+# 28. Final Advice
 
 Privilege escalation on Windows is usually **misconfiguration**, not exploitation.
 
@@ -535,7 +542,7 @@ What executes automatically?
 
 The more thoroughly you enumerate, the faster you escalate privileges.
 
-# 28. Additional Resources
+# 29. Additional Resources
 
 ```
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md
