@@ -216,6 +216,11 @@ Check writable service binary:
 icacls "C:\path\to\service.exe"
 ```
 
+Check if we have privileges over that process.
+```
+Use accesschk64 (https://learn.microsoft.com/en-us/sysinternals/downloads/accesschk)
+```
+
 If writable → replace executable.
 
 ---
