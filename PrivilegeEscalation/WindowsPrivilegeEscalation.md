@@ -150,6 +150,7 @@ List services:
 ```powershell
 sc query
 sc qc <service_name>
+sc config <service_name> binPath="malicious.exe"
 ```
 
 Detailed information:
