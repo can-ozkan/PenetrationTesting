@@ -149,6 +149,7 @@ List services:
 
 ```powershell
 sc query
+sc qc <service_name>
 ```
 
 Detailed information:
