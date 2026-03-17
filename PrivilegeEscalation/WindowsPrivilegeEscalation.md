@@ -202,7 +202,7 @@ If writable → privilege escalation.
 
 ---
 
-# 8. Weak Service Permissions
+# 8. Weak Service Permissions (Writable Binary or Writable Binary Path)
 
 Check service permissions:
 
