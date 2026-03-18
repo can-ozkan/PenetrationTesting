@@ -515,9 +515,14 @@ C:\Windows\system32\sysprep.inf
 C:\Windows\system32\sysprep\sysprep.xml
 ```
 
-## Powershell History
+## CMD History
 ```
 type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+```
+
+## Powershell History
+```
+Get-History
 ```
 
 ## IIS Configuration
