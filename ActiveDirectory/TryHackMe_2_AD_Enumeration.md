@@ -28,43 +28,132 @@ whoami /priv
 whoami /groups
 ```
 
-```
-hostname
-systeminfo
-```
+# 🧠 Active Directory Enumeration (CMD) — Cheat Sheet
 
-```
-ipconfig /all
-route print
-arp -a
-```
+## 👤 User Enumeration
 
-```
-echo %USERDOMAIN%
-set | findstr DOMAIN
-nltest /dsgetdc:za.tryhackme.com
-nltest /domain_trusts
+```cmd
+net user /domain
+net user <username> /domain
 net user /domain | findstr /i "admin svc backup"
 ```
 
-```
+---
+
+## 👥 Group Enumeration
+
+```cmd
+net group /domain
 net group "Domain Admins" /domain
 net group "Enterprise Admins" /domain
 net group "Administrators" /domain
 net group "Backup Operators" /domain
+net group "Tier 1 Admins" /domain
 ```
 
+---
+
+## 🧑‍🤝‍🧑 Group Membership
+
+```cmd
+net group "Domain Admins" /domain
+net group "Administrators" /domain
+net user <username> /domain
 ```
-net share
-net view \\<target>
+
+---
+
+## 🏢 Domain Information
+
+```cmd
+net accounts /domain
+nltest /dsgetdc:za.tryhackme.com
+nltest /domain_trusts
+echo %USERDOMAIN%
+```
+
+---
+
+## 🖥 Computer Enumeration
+
+```cmd
+net view /domain
 net view \\thmdc
+net view \\<hostname>
 ```
 
+---
+
+## 📂 Share Enumeration
+
+```cmd
+net share
+net view \\<hostname>
 ```
-findstr /si password *.txt *.xml *.ini *.config
-dir C:\ /s /b | findstr /i "pass"
+
+---
+
+## 🌐 Network Enumeration
+
+```cmd
+ipconfig /all
+arp -a
+route print
+netstat -ano
+```
+
+---
+
+## 🔐 Credential Hunting
+
+```cmd
 cmdkey /list
-reg query HKLM /f password /t REG_SZ /s
+```
+
+---
+
+## 🔍 File Search (Passwords)
+
+```cmd
+dir C:\ /s /b | findstr /i "password"
+findstr /si password *.txt *.xml *.ini *.config
+```
+
+---
+
+## ⚙️ System Enumeration
+
+```cmd
+whoami
+whoami /all
+whoami /priv
+whoami /groups
+hostname
+systeminfo
+```
+
+---
+
+## 🔗 Sessions
+
+```cmd
+query user
+query session
+```
+
+---
+
+## ⚡ Quick High-Value Commands
+
+```cmd
+whoami /all
+net user /domain
+net group "Domain Admins" /domain
+nltest /dsgetdc:za.tryhackme.com
+net view \\thmdc
+cmdkey /list
+```
+
 ```
 
 # Enumeration through PowerShell
