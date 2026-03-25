@@ -153,9 +153,9 @@ net view \\thmdc
 cmdkey /list
 ```
 
-```
 
-# Enumeration through PowerShell
+
+# 🧠 Active Directory Enumeration (PowerShell) — Cheat Sheet
 
 ```
 Get-ADUser -Identity gordon.stevens -Server za.tryhackme.com -Properties *
@@ -165,8 +165,6 @@ Get-ADGroupMember -Identity Administrators -Server za.tryhackme.com
 Get-ADDomain -Server za.tryhackme.com
 
 ```
-
-# 🧠 Active Directory Enumeration (PowerShell) — Cheat Sheet
 
 ## 👤 User Enumeration
 
