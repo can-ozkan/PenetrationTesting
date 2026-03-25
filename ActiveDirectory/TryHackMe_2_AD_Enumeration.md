@@ -259,3 +259,124 @@ Get-ADGroupMember "Domain Admins" -Server za.tryhackme.com
 Get-ADComputer -Filter * -Server za.tryhackme.com
 Get-ADDomainController -Filter * -Server za.tryhackme.com
 ```
+
+---
+
+# 🧠 PowerView Cheat Sheet (Active Directory Enumeration)
+
+## ⚙️ Load PowerView
+
+```powershell
+Import-Module .\PowerView.ps1
+# or
+. .\PowerView.ps1
+```
+
+---
+
+## 🌐 Domain Enumeration
+
+```powershell
+Get-Domain
+Get-DomainController
+Get-DomainSID
+Get-DomainPolicy
+```
+
+---
+
+## 👤 User Enumeration
+
+```powershell
+Get-DomainUser
+Get-DomainUser | Select Name,SamAccountName
+Get-DomainUser -Identity <user>
+Get-DomainUser | Select Name,Description
+Get-DomainUser -SPN
+Get-DomainUser -PreauthNotRequired
+```
+
+---
+
+## 👥 Group Enumeration
+
+```powershell
+Get-DomainGroup
+Get-DomainGroupMember "Domain Admins"
+Get-DomainGroupMember "Domain Admins" -Recurse
+Get-DomainGroup -UserName <user>
+```
+
+---
+
+## 🖥 Computer Enumeration
+
+```powershell
+Get-DomainComputer
+Get-DomainComputer | Select Name,OperatingSystem
+Get-DomainComputer -Ping
+```
+
+---
+
+## 🔑 Credential & Access Hunting
+
+```powershell
+Find-LocalAdminAccess
+Get-NetSession
+Get-NetLoggedon
+Get-NetLocalGroupMember -GroupName "Administrators"
+```
+
+---
+
+## 🔗 Trust Enumeration
+
+```powershell
+Get-DomainTrust
+Get-ForestTrust
+```
+
+---
+
+## 🧾 ACL Enumeration (Privilege Escalation)
+
+```powershell
+Get-ObjectAcl -SamAccountName <user> -ResolveGUIDs
+Get-ObjectAcl -ResolveGUIDs | ? {$_.ActiveDirectoryRights -match "GenericAll"}
+```
+
+---
+
+## 📂 Share & File Enumeration
+
+```powershell
+Find-DomainShare
+Find-InterestingFile
+```
+
+---
+
+## 🔥 High-Value Commands
+
+```powershell
+Get-DomainUser -SPN
+Get-DomainUser -PreauthNotRequired
+Find-LocalAdminAccess
+Get-DomainGroupMember "Domain Admins"
+Get-DomainUser | Select Name,Description
+```
+
+---
+
+## ⚡ Quick Workflow
+
+```powershell
+Get-DomainUser
+Get-DomainUser | Select Name,Description
+Get-DomainUser -SPN
+Get-DomainGroupMember "Domain Admins"
+Find-LocalAdminAccess
+Get-DomainComputer
+```
+
