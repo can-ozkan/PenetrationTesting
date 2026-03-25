@@ -11,7 +11,8 @@ Search for 'Active Directory Users and Computers' and look at organizational uni
 
 ---
 
-# Enumeration through Command Prompt
+
+# 🧠 Active Directory Enumeration (CMD) — Cheat Sheet
 
 ```
 net user /domain
@@ -27,8 +28,6 @@ whoami /all
 whoami /priv
 whoami /groups
 ```
-
-# 🧠 Active Directory Enumeration (CMD) — Cheat Sheet
 
 ## 👤 User Enumeration
 
