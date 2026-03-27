@@ -1,0 +1,6 @@
+sudo apt update \
+sudo apt install autoconf automake libtool pkg-config \
+git clone https://github.com/nmap/nmap.git \
+cd nmap \
+./configure --without-zenmap --without-nping --without-ncat LDFLAGS="-static" \
+make
