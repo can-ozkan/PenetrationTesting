@@ -445,6 +445,26 @@ net localgroup administrators
 
 # 9. Potato Escalation - Hot Potato / Tater
 
+You determine if Hot Potato works by checking whether LLMNR/NBNS spoofing, NTLM authentication, and NTLM relay conditions are present and not blocked by modern security controls. If the environment supports NTLM relay + spoofing + privileged authentication, then the Hot Potato may work.
+
+Check if LLMNR/NBNS is enabled.
+
+```
+Get-ItemProperty "HKLM:\Software\Policies\Microsoft\Windows NT\DNSClient"
+```
+
+Check NTLM usage because Hot Potato needs NTLM authentication.
+
+```
+Get-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa"
+```
+
+Check SMB signing because SMB signing prevents NTLM relay.
+
+```
+Get-SmbServerConfiguration | Select EnableSecuritySignature
+```
+
 ## Exploitation (Windows VM)
 
 Open PowerShell with execution policy bypass:
