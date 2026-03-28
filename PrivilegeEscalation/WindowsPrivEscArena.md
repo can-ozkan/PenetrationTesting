@@ -374,6 +374,8 @@ net localgroup administrators
 
 # 7. Service Escalation - binPath
 
+If a user has permission to change a service’s configuration (SERVICE_CHANGE_CONFIG), they can modify the binPath to execute arbitrary commands as SYSTEM when the service is started, leading to privilege escalation.
+
 ## Detection (Windows VM)
 
 ```cmd
