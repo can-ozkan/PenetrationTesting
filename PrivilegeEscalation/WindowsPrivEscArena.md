@@ -147,6 +147,8 @@ msiexec /quiet /qn /i C:\Temp\setup.msi
 
 # 3. Service Escalation - Registry Permissions
 
+The fundamental privilege escalation mechanism here is based on abusing weak permissions on a Windows service’s registry configuration. Because the service’s registry key (HKLM\SYSTEM\CurrentControlSet\Services\regsvc) grants a low-privileged user (via NT AUTHORITY\INTERACTIVE) full control, the attacker can modify the ImagePath value, which determines what executable the service runs. Since Windows services typically execute with high privileges (often as SYSTEM), changing this path to a malicious executable allows the attacker to make the service run arbitrary code with elevated privileges. When the service is started, it executes the attacker-controlled binary as SYSTEM, enabling actions such as adding the user to the Administrators group, thereby achieving privilege escalation.
+
 ## Detection (Windows VM, PowerShell)
 
 ```powershell
