@@ -222,6 +222,8 @@ net localgroup administrators
 
 # 4. Service Escalation - Executable File Permissions
 
+The fundamental privilege escalation mechanism here relies on weak file permissions on a Windows service executable. Because the service binary (filepermservice.exe) is writable by low-privileged users (due to Everyone having FILE_ALL_ACCESS), an attacker can overwrite it with a malicious executable. Since Windows services typically run with elevated privileges such as SYSTEM, replacing the legitimate binary ensures that when the service is started, it executes the attacker-controlled code with those high privileges. This allows the attacker to perform privileged actions, such as adding their user to the Administrators group, and thereby achieving privilege escalation.
+
 ## Detection (Windows VM)
 
 ```cmd
