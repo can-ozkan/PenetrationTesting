@@ -210,6 +210,7 @@ Start the service:
 
 ```cmd
 sc start regsvc
+net start daclsvc
 ```
 
 Verify:
