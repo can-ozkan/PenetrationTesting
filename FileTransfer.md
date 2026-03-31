@@ -391,6 +391,15 @@ C:\Users\Public
 
 ---
 
+# From Windows to Kali
+Use pscp - part of putty tools. Run the commond on Kali
+
+```
+pscp Administrator@<windows_ip>:C:/Users/Administrator/20260331004726_loot.zip /root
+```
+
+---
+
 # 26. Quick File Transfer Workflow
 
 ```
