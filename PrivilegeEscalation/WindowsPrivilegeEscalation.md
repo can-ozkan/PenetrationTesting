@@ -649,7 +649,19 @@ psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:13a04cdcf3f7ec41264e568127c5c
 
 ---
 
-# 29. Final Advice
+# 29. Abusing SeTakeOwnership Privilege
+We can abuse utilman.exe to escalate privileges this time. Utilman is a built-in Windows application used to provide Ease of Access options during the lock screen. To replace utilman, we will start by taking ownership of it with the following command:
+
+```
+takeown /f C:\Windows\System32\Utilman.exe
+icacls C:\Windows\System32\Utilman.exe /grant THMTakeOwnership:F
+copy cmd.exe utilman.exe
+```
+
+To trigger utilman, we will lock our screen from the start button. And finally, proceed to click on the "Ease of Access" button, which runs utilman.exe with SYSTEM privileges. Since we replaced it with a cmd.exe copy, we will get a command prompt with SYSTEM privileges:
+
+
+# 30. Final Advice
 
 Privilege escalation on Windows is usually **misconfiguration**, not exploitation.
 
@@ -663,7 +675,7 @@ What executes automatically?
 
 The more thoroughly you enumerate, the faster you escalate privileges.
 
-# 30. Additional Resources
+# 31. Additional Resources
 
 ```
 https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Windows%20-%20Privilege%20Escalation.md
