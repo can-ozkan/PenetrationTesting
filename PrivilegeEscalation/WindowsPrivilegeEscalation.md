@@ -20,6 +20,7 @@ Privilege escalation on Windows is **primarily enumeration**.
 whoami
 whoami /priv
 whoami /groups
+whoami /all
 ```
 
 Check if the user has interesting privileges:
