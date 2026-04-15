@@ -286,6 +286,10 @@ AlwaysInstallElevated = 1
 
 Then install MSI as SYSTEM.
 
+```
+msiexec /i payload.msi
+```
+
 ---
 
 # 12. Stored Credentials
