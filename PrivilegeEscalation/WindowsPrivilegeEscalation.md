@@ -31,6 +31,7 @@ SeAssignPrimaryTokenPrivilege
 SeBackupPrivilege
 SeRestorePrivilege
 SeTakeOwnershipPrivilege
+https://github.com/gtworek/Priv2Admin
 ```
 
 ---
@@ -644,4 +645,5 @@ https://github.com/antonioCoco/RogueWinRM
 https://jlajara.gitlab.io/Potatoes_Windows_Privesc
 https://decoder.cloud/
 https://book.hacktricks.wiki/en/windows-hardening/windows-local-privilege-escalation/index.html
+https://github.com/gtworek/Priv2Admin
 ```
