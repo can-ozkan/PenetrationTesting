@@ -63,6 +63,7 @@ List users:
 
 ```powershell
 net user
+net user <username>
 ```
 
 List groups:
