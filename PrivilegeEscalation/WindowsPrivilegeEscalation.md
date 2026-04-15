@@ -39,6 +39,7 @@ SeTakeOwnershipPrivilege
 ```powershell
 systeminfo
 hostname
+ver
 ```
 
 Check OS version:
