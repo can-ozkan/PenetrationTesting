@@ -345,6 +345,7 @@ Search system:
 dir /s *password*
 dir /s/b local.txt
 dir /s/b *.log
+tree /f /a Administrator
 ```
 
 ---
