@@ -344,6 +344,7 @@ Search system:
 ```powershell
 dir /s *password*
 dir /s/b local.txt
+dir /s/b *.log
 ```
 
 ---
