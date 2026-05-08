@@ -12,6 +12,43 @@ Privilege escalation on Windows is **primarily enumeration**.
 
 ---
 
+# 0. Net Enumeration
+
+
+```
+net user
+net user Administrator
+net user bob
+net user user1 Password123! /add
+net user Administrator NewPassword123! // change a user password
+net user Administrator /active:yes // Enable a disabled account
+net user guest /active:no // Disable an account
+net localgroup // List local groups
+net localgroup administrators // View members of Administrators group
+net localgroup administrators user1 /add // Add user to Administrators group
+net localgroup administrators user1 /delete // Remove user from Administrators group
+net user /domain // List domain users
+net user alice /domain // View a domain user
+net group "Domain Admins" /domain // View members of Domain Admins
+net group "Domain Admins" bob /add /domain // Add a user to a domain group
+net share // List shares on local machine
+net share hacker=C:\temp /grant:everyone,FULL // Create a new share
+net share hacker /delete // Delete a share
+net session // View active sessions connected to machine
+net view  // View computers in the domain/workgroup
+net view \\192.168.1.10 // Enumerate shares on a remote host
+net use \\TARGET\share // Mount SMB share
+net use \\TARGET\share /user:DOMAIN\user Password123! // Authenticate with alternate credentials
+net config workstation // View current domain
+net config server // View server/service information
+net start <Spooler> // Start a service
+net stop <Spooler> // Stop a service
+net accounts // View local password policy
+net accounts /domain // View domain password policy
+```
+
+---
+
 # 1. Basic System Enumeration
 
 ## Current User
