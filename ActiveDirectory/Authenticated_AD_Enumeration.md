@@ -67,6 +67,7 @@ bloodhound-python -u user -p password -d domain.local -ns 10.10.10.10 -c All
 bloodhound-python -u user -p password -d domain.local -ns 10.10.10.10 -c DCOnly
 bloodhound-python -u user -p password -d domain.local -ns 10.10.10.10 -c Group,LocalAdmin,Session,Trusts,ACL
 bloodhound-python -u user --hashes :NTHASH -d domain.local -ns 10.10.10.10 -c All
+bloodhound-python -u asrepuser1 -p qwerty123! -d tryhackme.loc -ns 10.211.12.10 -c All --zip
 
 # Kerberos
 kinit user@DOMAIN.LOCAL
