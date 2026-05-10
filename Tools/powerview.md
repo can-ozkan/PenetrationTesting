@@ -22,6 +22,7 @@ Get-DomainUser -SPN
 Get-DomainUser -PreauthNotRequired
 Get-DomainUser -AdminCount
 Get-DomainUser -LDAPFilter "(description=*)"
+Get-DomainUser *admin*
 
 # Domain Computers
 Get-DomainComputer
@@ -38,6 +39,7 @@ Get-DomainGroup -AdminCount
 Get-DomainGroupMember -Identity "Domain Admins"
 Get-DomainGroupMember -Identity "Enterprise Admins"
 Get-DomainGroupMember -Recurse -Identity "Administrators"
+Get-DomainGroup "*admin*"
 
 # Organizational Units
 Get-DomainOU
