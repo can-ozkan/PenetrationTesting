@@ -1,3 +1,4 @@
+```
 # NetExec SMB
 nxc smb 10.10.10.10 -u user -p password
 nxc smb 10.10.10.10 -d DOMAIN -u user -p password
@@ -155,3 +156,5 @@ GetUserSPNs.py DOMAIN/user:password -dc-ip 10.10.10.10 -request
 bloodhound-python -u user -p password -d domain.local -ns 10.10.10.10 -c All
 Find-LocalAdminAccess
 Find-DomainShare -CheckShareAccess
+
+```
