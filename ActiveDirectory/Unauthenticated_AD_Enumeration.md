@@ -1,3 +1,4 @@
+```
 # Nmap LDAP Enumeration
 nmap -Pn -p389,636,3268,3269 -sV 10.10.10.10
 nmap -Pn -p389 --script ldap-rootdse 10.10.10.10
@@ -128,3 +129,5 @@ GetNPUsers.py domain.local/ -dc-ip 10.10.10.10 -usersfile users.txt
 lookupsid.py anonymous@10.10.10.10
 nxc smb 10.10.10.10 --rid-brute
 responder -I tun0 -dwv
+
+```
