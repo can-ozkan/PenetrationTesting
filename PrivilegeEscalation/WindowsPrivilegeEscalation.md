@@ -523,6 +523,7 @@ Check registry:
 
 ```powershell
 reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
 ```
 
 ---
