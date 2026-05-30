@@ -477,6 +477,7 @@ linux-smart-enumeration https://github.com/diego-treitos/linux-smart-enumeration
 LinEnum https://github.com/rebootuser/LinEnum
 LES (Linux Exploit Suggester) https://github.com/mzet-/linux-exploit-suggester
 Linux PrivChecker https://github.com/linted/linuxprivchecker
+https://github.com/dominicbreuker/pspy
 ```
 
 Run example:
