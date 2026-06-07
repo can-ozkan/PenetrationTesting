@@ -15,7 +15,7 @@ Room basics:
 
 ```bash
 xfreerdp /u:user /p:password321 /cert:ignore /v:TARGET_IP
-xfreerdp /v:TARGET_IP /u:user /p:'password' /ceert:ignore +clipboard /dynamic-resolution /drive:share,/share
+xfreerdp /v:TARGET_IP /u:user /p:'password' /cert:ignore +clipboard /dynamic-resolution /drive:share,/share
 ```
 
 ## Confirm users on the box
