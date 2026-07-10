@@ -10,6 +10,7 @@ smbclient.py thm.loc/Administrator@SERVER1.thm.loc -k -no-pass -dc-ip 192.168.11
 
 # psexec.py
 psexec.py user:password@10.10.10.10
+psexec.py user@10.10.10.10
 psexec.py DOMAIN/user:password@10.10.10.10
 psexec.py -hashes LMHASH:NTHASH user@10.10.10.10
 psexec.py -k -no-pass user@10.10.10.10
