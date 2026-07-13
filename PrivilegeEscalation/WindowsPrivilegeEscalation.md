@@ -177,6 +177,12 @@ net stop Spooler
 net start Spooler
 ```
 
+::winpeas
+```
+cmd.exe /c "winpeas.bat > winpeas-bat.txt 2>&1"
+Get-Content .\winpeas-bat.txt -Tail 100
+```
+
 ---
 
 # 1. Basic System Enumeration
