@@ -19,7 +19,7 @@ smbmap -H 10.10.10.10 -u user -p password -r
 smbmap -H 10.10.10.10 -u user -p password -r SHARE
 
 # Recursive Directory Listing
-smbmap -H 10.10.10.10 -u user -p password -R SHARE
+smbmap -H 10.10.10.10 -u user -p password -r SHARE --depth 10
 
 # Download File
 smbmap -H 10.10.10.10 -u user -p password --download "SHARE\\file.txt"
