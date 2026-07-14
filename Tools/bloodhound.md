@@ -17,8 +17,7 @@ bloodhound-python -u USER -p PASSWORD -d DOMAIN.LOCAL -ns DC_IP -c All
 Example:
 
 ```bash
-bloodhound-python \
--u svc_tgs -p 'Password123!' -d active.htb -ns 10.10.10.100 -c All
+bloodhound-python -u svc_tgs -p 'Password123!' -d active.htb -ns 10.10.10.100 -c All
 ```
 
 ---
