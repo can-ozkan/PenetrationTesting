@@ -12,6 +12,7 @@
 
 ```bash
 bloodhound-python -u USER -p PASSWORD -d DOMAIN.LOCAL -ns DC_IP -c All
+bloodhound-python -u USER -p PASSWORD -d DOMAIN.LOCAL -ns DC_IP -c All --zip
 ```
 
 Example:
