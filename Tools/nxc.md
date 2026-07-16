@@ -24,7 +24,7 @@ nxc smb 10.10.10.10 -u user -p password --sessions
 nxc smb 10.10.10.10 -u user -p password --loggedon-users
 
 # Enumerate Local Users
-nxc smb 10.10.10.10 -u user -p password --users
+nxc smb 10.10.10.10 -u user -p password --users // this is important because you can catch creds from the description column
 
 # Enumerate Local Groups
 nxc smb 10.10.10.10 -u user -p password --groups
