@@ -1,6 +1,11 @@
 # BloodHound Cheat Sheet (GPEN & OSCP)
 
 > **Goal:** Quickly identify attack paths, privilege escalation opportunities, and lateral movement during Active Directory assessments.
+>
+## Run bloodhound
+```
+sudo bloodhound --no-sandbox
+```
 
 ---
 
