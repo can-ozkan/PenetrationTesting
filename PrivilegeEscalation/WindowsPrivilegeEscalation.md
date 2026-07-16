@@ -2,10 +2,10 @@
 
 This cheat sheet provides a **systematic methodology for Windows privilege escalation** commonly encountered in **OSCP and GPEN exams**. The focus is on **enumeration first**, then identifying and exploiting misconfigurations.
 
-Core methodology:
+Basic payload:
 
 ```
-Enumerate → Identify Weakness → Exploit → Maintain Access
+C:\WINDOWS\system32\cmd.exe /c net localgroup Administrators <username> /add
 ```
 
 Privilege escalation on Windows is **primarily enumeration**.
