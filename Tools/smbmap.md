@@ -3,6 +3,7 @@
 ```
 # Enumerate SMB Shares
 smbmap -H 10.10.10.10
+smbmap -H 10.129.231.149 -u '.' -p ''
 smbmap -H 10.10.10.10 -u user -p password
 smbmap -H 10.10.10.10 -u user -p ''
 smbmap -H 10.10.10.10 -u '' -p ''
