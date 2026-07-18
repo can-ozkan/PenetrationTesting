@@ -630,15 +630,15 @@ Donwload nc.exe from https://github.com/int0x33/nc.exe/blob/master/nc.exe?source
 reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP"
 ```
 
-##  SeImpersonatePrivilege Exploit Cheat Sheet
+> **Prerequisite:** `SeImpersonatePrivilege` (or `SeAssignPrimaryTokenPrivilege`) must be enabled.
 
-| Windows Version                              | Recommended Exploit |
-|---------------------------------------------|--------------------|
-| Windows Server 2008 / 2012 / 2012 R2        | JuicyPotato        |
-| Windows 10 (older builds)                   | JuicyPotato / RoguePotato |
-| Windows 10 (newer builds)                   | PrintSpoofer       |
-| Windows Server 2016 / 2019                  | PrintSpoofer       |
-| Windows Server 2022 / fully patched systems | GodPotato          |
+| Windows Version | First Choice | Alternatives | Notes |
+|-----------------|-------------|--------------|-------|
+| **Windows 7 / Server 2008 R2** | **JuicyPotato** | RottenPotato, SweetPotato | Classic DCOM token impersonation. |
+| **Windows Server 2012 / 2012 R2** | **JuicyPotato** | SweetPotato | JuicyPotato is usually the first choice. |
+| **Windows Server 2016 / Windows 10 (<1809)** | **JuicyPotato** | SweetPotato | DCOM abuse still works. |
+| **Windows 10 (1809+) / Server 2019** | **PrintSpoofer** | GodPotato, RoguePotato, SweetPotato | JuicyPotato is generally ineffective due to DCOM changes. |
+| **Windows 11 / Server 2022** | **GodPotato** | PrintSpoofer, SweetPotato | GodPotato has broad support for modern Windows versions. |
 
 ---
 
