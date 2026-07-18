@@ -4,6 +4,18 @@
 # Anonymous LDAP Enumeration
 ldapsearch -x -H ldap://10.10.10.10
 ldapsearch -x -H ldap://10.10.10.10 -b "dc=example,dc=com"
+ldapsearch -x -H ldap://10.10.10.10 -b "dc=example,dc=com" > ldap.txt
+
+grep -i description ldap.txt
+grep -i password ldap.txt
+grep -i pwd ldap.txt
+grep -i memberOf ldap.txt
+grep -i servicePrincipalName ldap.txt
+grep -i userPrincipalName ldap.txt
+grep -i admin ldap.txt
+grep -i delegation ldap.txt
+grep -i managedby ldap.txt
+grep -i sAMAccountName ldap.txt
 
 # Basic LDAP Query
 ldapsearch -x -H ldap://10.10.10.10 -b "dc=example,dc=com" "(objectClass=*)"
