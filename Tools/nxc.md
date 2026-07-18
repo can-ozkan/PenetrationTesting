@@ -96,6 +96,7 @@ nxc ssh 10.10.10.10 -u user -p password
 
 # LDAP Enumeration
 nxc ldap 10.10.10.10 -u user -p password
+nxc ldap 10.10.10.10 -u '' -p '' --users
 
 # LDAP BloodHound Collection
 nxc ldap 10.10.10.10 -u user -p password --bloodhound
