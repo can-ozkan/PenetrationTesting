@@ -20,6 +20,7 @@ grep -i admin ldap.txt
 grep -i delegation ldap.txt
 grep -i managedby ldap.txt
 grep -i sAMAccountName ldap.txt
+grep -i '^dn:' ldap.txt
 grep -i dn ldap.txt // for more user enumeration
 
 # Basic LDAP Query
