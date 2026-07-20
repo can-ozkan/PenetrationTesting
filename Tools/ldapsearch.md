@@ -8,6 +8,7 @@ ldapsearch -x -H ldap://10.129.95.210 -b "dc=htb,dc=local" '(objectClass=Person)
 ldapsearch -x -H ldap://10.129.95.210 -b "dc=htb,dc=local" '(objectClass=user)'
 ldapsearch -x -H ldap://10.10.10.10 -b "dc=example,dc=com"
 ldapsearch -x -H ldap://10.10.10.10 -b "dc=example,dc=com" > ldap.txt
+ldapsearch -x -H ldap://10.129.95.210 -b "dc=htb,dc=local" '(objectClass=Person)' | grep sAMAccountName
 
 grep -i description ldap.txt
 grep -i password ldap.txt
