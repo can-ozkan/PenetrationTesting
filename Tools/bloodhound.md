@@ -60,6 +60,7 @@ bloodhound-python -u USER -p PASSWORD -d DOMAIN.LOCAL -ns DC_IP --dns-tcp False 
 
 ```powershell
 SharpHound.exe -c All
+.\SharpHound.exe
 ```
 
 ---
