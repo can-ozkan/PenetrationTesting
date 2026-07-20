@@ -1,5 +1,20 @@
 # Kerbrute
 
+## Overview
+
+**Kerbrute** is a fast Kerberos pre-authentication attack tool used to:
+
+- Enumerate valid domain usernames
+- Password spray against Kerberos
+- Brute-force passwords
+- Enumerate user accounts without generating Windows event logs for failed logons (Kerberos pre-authentication behavior differs from SMB/LDAP authentication)
+
+Repository:
+
+https://github.com/ropnop/kerbrute
+
+---
+
 ```
 # User Enumeration
 kerbrute userenum --dc 10.10.10.10 -d example.com users.txt
