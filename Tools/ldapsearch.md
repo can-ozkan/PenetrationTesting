@@ -3,7 +3,7 @@
 ```
 # Anonymous LDAP Enumeration
 ldapsearch -x -H ldap://10.10.10.10
-ldapsearch -H 10.129.95.210 -x -s base namingcontexts
+ldapsearch -H ldap://10.129.95.210 -x -s base namingcontexts
 ldapsearch -x -H ldap://10.129.95.210 -b "dc=htb,dc=local" '(objectClass=Person)'
 ldapsearch -x -H ldap://10.129.95.210 -b "dc=htb,dc=local" '(objectClass=user)'
 ldapsearch -x -H ldap://10.10.10.10 -b "dc=example,dc=com"
