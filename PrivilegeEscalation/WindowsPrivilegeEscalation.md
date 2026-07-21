@@ -658,6 +658,15 @@ Place malicious DLL in writable directory.
 
 ---
 
+# KeePass Files
+Enumerate KeePass files on the file system
+
+```
+dir C:\*.kdbx /s /b
+keepass2john CEH.kdbx > hash
+john hash --wordlist=/usr/share/wordlists/rockyou.txt
+```
+
 # 20. PATH Variable Abuse
 
 Check PATH:
