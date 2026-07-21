@@ -667,6 +667,12 @@ keepass2john CEH.kdbx > hash
 john hash --wordlist=/usr/share/wordlists/rockyou.txt
 ```
 
+For powershell
+
+```
+dir C:\ -Recurse -Filter *.kdbx
+```
+
 # 20. PATH Variable Abuse
 
 Check PATH:
