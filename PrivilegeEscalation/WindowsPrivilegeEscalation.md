@@ -121,6 +121,7 @@ tasklist /svc
 taskkill /PID 1234 /F
 
 :: FILE HUNTING
+dir C:\*.kdbx /s /b
 dir proof.txt /s /b C:\
 dir local.txt /s /b C:\
 dir *.config /s /b
