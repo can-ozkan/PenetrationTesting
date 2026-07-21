@@ -1,7 +1,7 @@
 # RPC Enumeration Cheat Sheet (GPEN & OSCP)
 
 > **Goal:** Enumerate Windows systems and Active Directory via MSRPC (TCP/135, SMB Named Pipes, Dynamic RPC Ports) to identify users, groups, shares, domain information, and potential attack paths.
-querydispinfo enumerates the description field. So you can catch passwords
+
 
 ---
 
@@ -111,6 +111,7 @@ dsroledominfo
 
 ```text
 enumdomusers
+querydispinfo enumerates the description field. So you can catch passwords
 ```
 
 ---
