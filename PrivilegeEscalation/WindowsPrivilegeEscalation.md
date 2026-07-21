@@ -557,6 +557,7 @@ Check history:
 
 ```powershell
 type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+(Get-PSReadlineOption).HistorySavePath
 ```
 
 ---
