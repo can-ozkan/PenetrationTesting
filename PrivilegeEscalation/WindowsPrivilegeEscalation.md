@@ -505,6 +505,32 @@ Get-ScheduledTask |
     Format-Table -AutoSize
 ```
 
+This checks the executables or scripts referenced directly by scheduled tasks:
+```
+Get-ScheduledTask | ForEach-Object {
+    $task = $_
+
+    foreach ($action in $task.Actions) {
+        $path = [Environment]::ExpandEnvironmentVariables($action.Execute)
+
+        if ($path -and (Test-Path -LiteralPath $path)) {
+            [PSCustomObject]@{
+                Task = "$($task.TaskPath)$($task.TaskName)"
+                User = $task.Principal.UserId
+                Path = $path
+                ACL  = (Get-Acl -LiteralPath $path).Access |
+                       Where-Object {
+                           $_.FileSystemRights -match 'Write|Modify|FullControl'
+                       } |
+                       ForEach-Object {
+                           "$($_.IdentityReference):$($_.FileSystemRights)"
+                       }
+            }
+        }
+    }
+}
+```
+
 ---
 
 # 10. Registry Permissions
