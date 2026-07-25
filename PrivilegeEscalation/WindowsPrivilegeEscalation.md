@@ -435,6 +435,9 @@ List scheduled tasks:
 
 ```powershell
 schtasks /query /fo LIST /v
+schtasks /query /fo LIST /v | findstr /I /C:"TaskName:" /C:"Task To Run:" /C:"Run As User:" (cmd)
+schtasks /query /fo LIST /v | Select-String 'TaskName:|Task To Run:|Run As User:' (PS)
+
 ```
 
 Look for:
