@@ -814,6 +814,7 @@ type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\Conso
 ## Powershell History
 ```
 Get-History
+(Get-PSReadlineOption).HistorySavePath
 ```
 
 ## IIS Configuration
