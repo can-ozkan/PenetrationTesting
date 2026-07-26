@@ -1096,7 +1096,7 @@ With `root_squash`, remote root is mapped to an unprivileged identity. With `no_
 Mount the export from an authorized attacker system:
 
 ```bash
-sudo mount -t nfs TARGET_IP:/export/path /mnt/nfs
+sudo mount -o rw,vers=3 TARGET_IP:/export/path /mnt/nfs
 ```
 
 Create and compile a small SUID helper as root on the attacker system:
